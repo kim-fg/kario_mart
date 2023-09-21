@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 1342483051
+    locked: 0
+  - name: Ground Effects
+    uniqueID: 3776747869
+    locked: 0
+  - name: Player
+    uniqueID: 4097796847
+    locked: 0
+  - name: Air Effets
+    uniqueID: 1611459661
+    locked: 0
