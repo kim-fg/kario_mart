@@ -1,3 +1,4 @@
+using System;
 using KarioMart.Util;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace KarioMart.CarSystem
 {
     public class Car : MonoBehaviour
     {
+        public event Action<Collider2D> OnEnterCheckpoint;
+        
         [SerializeField] private float accelerationScale = 1f;
         [SerializeField] private float reverseScale = 0.5f;
         [SerializeField] private float steeringScale = 1f;
@@ -32,6 +35,14 @@ namespace KarioMart.CarSystem
 
             if (_rb2d.velocity.magnitude > float.Epsilon)
                 transform.Rotate(-transform.forward, _steering * steeringScale);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Checkpoint"))
+            {
+                OnEnterCheckpoint?.Invoke(other);
+            }
         }
     }
 }
