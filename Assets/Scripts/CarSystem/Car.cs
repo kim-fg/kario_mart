@@ -16,6 +16,7 @@ namespace KarioMart.CarSystem
         private Rigidbody2D _rb2d;
         private float _gas;
         private float _steering;
+        public float Speed => _rb2d.velocity.magnitude;
 
         private void Awake()
         {
