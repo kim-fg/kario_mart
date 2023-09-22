@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,16 +10,30 @@ namespace KarioMart.Gamemode
         
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI lapLabel;
-        [SerializeField] private TextMeshProUGUI lapTimeLabel;
+        [SerializeField] private TextMeshProUGUI activeLapTimeLabel;
         [SerializeField] private TextMeshProUGUI splitTimeLabel;
+        [SerializeField] private TextMeshProUGUI previousLapTimeLabel;
         
         private TimeTrial _timeTrial;
-
+        
         private void Awake()
         {
             _timeTrial = transform.root.GetComponent<TimeTrial>();
             _timeTrial.OnLapEnded += LapEnded;
             _timeTrial.OnSplit += delegate(float splitTime) { StartCoroutine(ShowSplitTime(splitTime)); };
+        }
+        
+        private void Start()
+        {
+            UpdateLapLabel();
+            ToggleShowSplit();
+
+            previousLapTimeLabel.text = "Prev Lap: -:--:-";
+        }
+
+        private void FixedUpdate()
+        {
+            activeLapTimeLabel.text = LapTimeDisplayString(_timeTrial.CurrentLap.GetLapTime());
         }
         
         private IEnumerator ShowSplitTime(float splitTime)
@@ -36,27 +49,17 @@ namespace KarioMart.Gamemode
             splitTimeLabel.gameObject.SetActive(!splitTimeLabel.gameObject.activeSelf);
         }
 
-        private void Start()
-        {
-            UpdateLapLabel();
-            ToggleShowSplit();
-        }
-
         private void LapEnded(Lap lap)
         {
             UpdateLapLabel();
+            previousLapTimeLabel.text = $"Prev Lap: {LapTimeDisplayString(lap.GetLapTime())}";
         }
         
         private void UpdateLapLabel()
         {
             lapLabel.text = $"Lap: {_timeTrial.LapCount}";
         }
-
-        private void FixedUpdate()
-        {
-            lapTimeLabel.text = LapTimeDisplayString(_timeTrial.CurrentLap.GetLapTime());
-        }
-
+        
         private string LapTimeDisplayString(float lapTime)
         {
             int minutes = (int) (lapTime / 60); // convert to minutes (probably never gonna happen)
