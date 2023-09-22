@@ -25,7 +25,6 @@ namespace KarioMart.Gamemode
             car.OnEnterCheckpoint += CheckpointEntered;
 
             var dot = Vector2.Dot(Vector2.up, Vector2.up);
-            print(dot);
             
             // load lap record if it exists
         }
