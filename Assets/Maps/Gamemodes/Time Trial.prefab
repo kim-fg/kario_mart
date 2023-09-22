@@ -1132,5 +1132,5 @@ MonoBehaviour:
   activeLapTimeLabel: {fileID: 3119072948439382797}
   splitTimeLabel: {fileID: 3744152017499279741}
   previousLapTimeLabel: {fileID: 3611358828667081423}
-  recordLapTimeLabel: {fileID: 0}
+  recordLapTimeLabel: {fileID: 4652869204848952795}
   newRecordIndicator: {fileID: 5676360673317336786}
