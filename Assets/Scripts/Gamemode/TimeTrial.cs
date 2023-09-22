@@ -1,35 +1,39 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using KarioMart.CarSystem;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace KarioMart
+namespace KarioMart.Gamemode
 {
     public class TimeTrial : MonoBehaviour
     {
+        public event Action<float> OnSplit;
+        public event Action<Lap> OnLapEnded;
+        
         [SerializeField] private Car car;
         [SerializeField] private Collider2D[] checkpointSequence;
 
         private int _currentCheckpointIndex;
-        private float _lapStartTime;
-        private float _lapEndTime;
-        private float _bestLapTime;
-        
+
+        public int LapCount { get; private set; } = 1;
+        public Lap CurrentLap { get; private set; }
+        public Lap RecordLap { get; private set; } = Lap.Max;
 
         private void Awake()
         {
-            _bestLapTime = float.MaxValue;
-            
             car.OnEnterCheckpoint += CheckpointEntered;
+            
+            // load lap record if it exists
         }
         
         private void Start()
         {
             StartLap();
+        }
+        private void StartLap()
+        {
+            _currentCheckpointIndex = 0;
+            CurrentLap = new Lap();
+            CurrentLap.Start();
         }
 
         private void CheckpointEntered(Collider2D checkpoint)
@@ -45,36 +49,29 @@ namespace KarioMart
                 EndLap();
                 return;
             }
-        }
-
-        private void StartLap()
-        {
-            _currentCheckpointIndex = 0;
-            _lapStartTime = Time.time;
+            
+            OnSplit?.Invoke(CurrentLap.GetLapTime());
         }
 
         private void EndLap()
         {
-            _lapEndTime = Time.time;
+            CurrentLap.Stop();
+            var newBestTime = CurrentLap.IsRecord(RecordLap);
 
-            var lapTime = LapTime();
-
-            if (_bestLapTime > lapTime)
+            if (newBestTime)
             {
-                _bestLapTime = lapTime;
-                //update ui here
-                print($"New best time!");
+                RecordLap = CurrentLap;
             }
             
-            // do ui stuff here
-            print($"Lap time: {lapTime}");
+            // save in highscore list
+                // <--
+            
+            LapCount++;
+            
+            OnLapEnded?.Invoke(CurrentLap);
+            
             
             StartLap();
-        }
-
-        private float LapTime()
-        {
-            return _lapEndTime - _lapStartTime;
         }
     }
 }
