@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KarioMart.Gamemode
 {
@@ -13,6 +14,10 @@ namespace KarioMart.Gamemode
         [SerializeField] private TextMeshProUGUI activeLapTimeLabel;
         [SerializeField] private TextMeshProUGUI splitTimeLabel;
         [SerializeField] private TextMeshProUGUI previousLapTimeLabel;
+
+        [Header("Record")] 
+        [SerializeField] private TextMeshProUGUI recordLapTimeLabel;
+        [SerializeField] private GameObject newRecordIndicator;
         
         private TimeTrial _timeTrial;
         
@@ -21,20 +26,35 @@ namespace KarioMart.Gamemode
             _timeTrial = transform.root.GetComponent<TimeTrial>();
             _timeTrial.OnLapEnded += LapEnded;
             _timeTrial.OnSplit += delegate(float splitTime) { StartCoroutine(ShowSplitTime(splitTime)); };
+            _timeTrial.OnNewRecord += UpdateRecordLabel;
         }
         
         private void Start()
         {
             UpdateLapLabel();
+            UpdateRecordLabel(_timeTrial.RecordLap);
             ToggleShowSplit();
 
-            previousLapTimeLabel.text = "Prev Lap: -:--:-";
+            previousLapTimeLabel.text = $"Prev Lap: {EmptyLapTimeDisplayString}";
+            newRecordIndicator.SetActive(false);
         }
 
         private void FixedUpdate()
         {
             activeLapTimeLabel.text = LapTimeDisplayString(_timeTrial.CurrentLap.GetLapTime());
         }
+        
+        private void UpdateRecordLabel(Lap lap)
+        {
+            var recordTimeString = _timeTrial.RecordIsSet ? 
+                LapTimeDisplayString(_timeTrial.RecordLap.GetLapTime()) : EmptyLapTimeDisplayString;
+            
+            recordLapTimeLabel.text = $"Record: {recordTimeString}";
+
+            // this should probably be moved to TimeTrial
+            newRecordIndicator.SetActive(true);
+        }
+
         
         private IEnumerator ShowSplitTime(float splitTime)
         {
@@ -59,6 +79,8 @@ namespace KarioMart.Gamemode
         {
             lapLabel.text = $"Lap: {_timeTrial.LapCount}";
         }
+        
+        private string EmptyLapTimeDisplayString => "-:--:-"; 
         
         private string LapTimeDisplayString(float lapTime)
         {
