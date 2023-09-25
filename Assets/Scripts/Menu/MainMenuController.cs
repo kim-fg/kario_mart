@@ -10,11 +10,6 @@ namespace KarioMart.Menu
 {
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField] private MapData[] maps;
         
-        public void LoadSelectedMap()
-        {
-            SceneLoader.Instance.LoadMap(maps[0]);
-        }
     }
 }

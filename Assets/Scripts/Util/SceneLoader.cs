@@ -11,8 +11,13 @@ namespace KarioMart.Util
         public static SceneLoader Instance { get; private set; }
         
         [SerializeField] private AssetReference mainMenu;
-
+        
         private void Awake()
+        {
+            Init();
+        }
+
+        public void Init()
         {
             if (!Instance)
             {

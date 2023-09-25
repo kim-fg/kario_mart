@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using KarioMart.Map;
+using KarioMart.Util;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -44,6 +45,11 @@ namespace KarioMart
         private void DisplayMap(MapData mapData)
         {
             SelectedMap = mapData;
+        }
+        
+        public void LoadSelectedMap()
+        {
+            SceneLoader.Instance.LoadMap(SelectedMap);
         }
     }
 }

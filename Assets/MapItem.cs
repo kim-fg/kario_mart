@@ -5,6 +5,7 @@ using KarioMart.Map;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace KarioMart
@@ -15,7 +16,7 @@ namespace KarioMart
         
         [Header("Display")]
         [SerializeField] private TextMeshProUGUI titleLabel;
-        [SerializeField] private Image image;
+        [FormerlySerializedAs("image")] [SerializeField] private Image displayImage;
 
         private MapData _mapData;
         
@@ -23,12 +24,13 @@ namespace KarioMart
         {
             _mapData = mapData;
             titleLabel.text = _mapData.DisplayName;
-            image.sprite = _mapData.DisplayImage;
+            displayImage.sprite = _mapData.DisplayImage;
         }
 
         public override void OnSelect(BaseEventData eventData)
         {
             OnSelectedMap?.Invoke(_mapData);
+            base.OnSelect(eventData);
         }
     }
 }
