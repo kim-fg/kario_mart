@@ -10,7 +10,7 @@ namespace KarioMart.Util
     {
         public static SceneLoader Instance { get; private set; }
         
-        [SerializeField] private AssetReferenceT<SceneAsset> mainMenu;
+        [SerializeField] private AssetReference mainMenu;
 
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace KarioMart.Util
 
         public void LoadMap(MapData mapData)
         {
-            Addressables.LoadSceneAsync(mapData.SceneAssetReference);
+            Addressables.LoadSceneAsync(mapData.Scene);
         }
     }
 }

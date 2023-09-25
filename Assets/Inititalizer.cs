@@ -9,7 +9,7 @@ namespace KarioMart
 {
     public class Inititalizer : MonoBehaviour
     {
-        [SerializeField] private AssetReferenceT<SceneAsset> startupScene;
+        [SerializeField] private AssetReference startupScene;
 
         private void Start()
         {

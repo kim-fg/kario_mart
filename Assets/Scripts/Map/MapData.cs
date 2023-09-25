@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace KarioMart.Map
@@ -13,14 +14,15 @@ namespace KarioMart.Map
         [Multiline(5)]
         [SerializeField] private string description;
         
+        [FormerlySerializedAs("sceneAsset")]
         [Header("Assets")]
-        [SerializeField] private AssetReferenceT<SceneAsset> sceneAsset;
-        [SerializeField] private AssetReferenceT<Sprite> displayImage;
+        [SerializeField] private AssetReference scene;
+        [SerializeField] private AssetReference displayImage;
 
         public string DisplayName => displayName;
         public string Description => description;
-        public AssetReferenceT<SceneAsset> SceneAssetReference => sceneAsset;
-        public AssetReferenceT<Sprite> DisplayImage => displayImage;
-
+        
+        public AssetReference Scene => scene;
+        public AssetReference DisplayImage => displayImage;
     }
 }

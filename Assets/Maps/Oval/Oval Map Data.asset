@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ee88bd9b4d4b4ba917cacc9370ebda, type: 3}
   m_Name: Oval Map Data
   m_EditorClassIdentifier: 
-  displayName: Map Display Name
-  description: Map description
-  sceneAsset:
+  displayName: Oval
+  description: One single oval. Turn right with good lines.
+  scene:
     m_AssetGUID: 8cd4397f8c8dc514ba6f63e1a6c16876
     m_SubObjectName: 
     m_SubObjectType: 

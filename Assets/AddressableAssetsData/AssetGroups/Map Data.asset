@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Map Group
+  m_Name: Map Data
   m_EditorClassIdentifier: 
-  m_GroupName: Map Group
+  m_GroupName: Map Data
   m_Data:
     m_SerializedData: []
-  m_GUID: 804e1e3932f6c4a4792211a1978aecdc
-  m_SerializeEntries:
-  - m_GUID: 8cd4397f8c8dc514ba6f63e1a6c16876
-    m_Address: Assets/Maps/Oval/map_oval.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: 5ac8eb38335bf2f4f96d3a46d100a68d
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 925546cfae5fefe4db347642226e6d63, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 90d61bf366c50c048a3ad2e922438977, type: 2}
-    - {fileID: 11400000, guid: c0882522030ff7641b54e7ddb1a8d214, type: 2}
+    - {fileID: 11400000, guid: 9d7c08d972219554aa4152dfa8d07db9, type: 2}
+    - {fileID: 11400000, guid: 2e112424c3d40ee4f977d0dcf69f91f8, type: 2}
