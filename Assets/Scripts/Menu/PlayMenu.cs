@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using KarioMart.Map;
+using KarioMart.Menu;
 using KarioMart.Util;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace KarioMart
 {
-    public class PlayMenu : MonoBehaviour
+    public class PlayMenu : SubMenu
     {
         [Header("Maps")]
         [SerializeField] private MapData[] maps;
