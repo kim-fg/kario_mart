@@ -14,15 +14,14 @@ namespace KarioMart.Map
         [Multiline(5)]
         [SerializeField] private string description;
         
-        [FormerlySerializedAs("sceneAsset")]
         [Header("Assets")]
+        [SerializeField] private Sprite displayImage;
         [SerializeField] private AssetReference scene;
-        [SerializeField] private AssetReference displayImage;
 
         public string DisplayName => displayName;
         public string Description => description;
         
         public AssetReference Scene => scene;
-        public AssetReference DisplayImage => displayImage;
+        public Sprite DisplayImage => displayImage;
     }
 }
