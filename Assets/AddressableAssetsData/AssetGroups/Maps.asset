@@ -22,6 +22,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66e41a4aca3458047980cb9c71b0cd91
+    m_Address: Assets/Maps/Wiggle/map_wiggle.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f26a3cbde57e06488b9f3885e544713
+    m_Address: Assets/Maps/Figure Eight/map_figure_eight.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 925546cfae5fefe4db347642226e6d63, type: 2}
   m_SchemaSet:
