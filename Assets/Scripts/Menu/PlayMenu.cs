@@ -15,6 +15,9 @@ namespace KarioMart
         [SerializeField] private MapData[] maps;
         [SerializeField] private MapItem mapItemPrefab;
         [SerializeField] private Transform mapListTransform;
+        
+        [Header("Display")] 
+        [SerializeField] private MapDisplay mapDisplay;
 
         public MapData SelectedMap { get; private set; }
         
@@ -29,7 +32,7 @@ namespace KarioMart
         {
             for (int i = 0; i < mapListTransform.childCount; i++)
             {
-                Destroy(mapListTransform.GetChild(0).gameObject);
+                Destroy(mapListTransform.GetChild(i).gameObject);
             }
         }
 
@@ -39,13 +42,14 @@ namespace KarioMart
             {
                 MapItem mapItem = Instantiate(mapItemPrefab, mapListTransform);
                 mapItem.Init(maps[i]);
-                mapItem.OnSelectedMap += DisplayMap;
+                mapItem.OnSelectedMap += SelectMap;
             }
         }
 
-        private void DisplayMap(MapData mapData)
+        private void SelectMap(MapData mapData)
         {
             SelectedMap = mapData;
+            mapDisplay.DisplayMap(mapData);
         }
         
         public void LoadSelectedMap()
