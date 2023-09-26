@@ -521,13 +521,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3900888234601188823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14eec59bb9633f4083dbf925b84af53, type: 3}
+  m_Script: {fileID: 11500000, guid: 28338448ca6224845b606d78c3cb2fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
-  checkpointSequence:
-  - {fileID: 0}
-  - {fileID: 0}
+  checkpointSequence: []
 --- !u!1 &5676360673317336786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,10 +1122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8432263276128351936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11faa269a5c1de74d86be72410c6b1d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 81625c7098d0e3944bd6640746c0e6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showSplitDuration: 2
+  showSplitDuration: 1
   lapLabel: {fileID: 6316458405308840048}
   activeLapTimeLabel: {fileID: 3119072948439382797}
   splitTimeLabel: {fileID: 3744152017499279741}
