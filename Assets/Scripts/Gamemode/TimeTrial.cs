@@ -40,7 +40,7 @@ namespace KarioMart.Gamemode
             CurrentLap.Start();
         }
 
-        private void CheckpointEntered(Collider2D checkpoint)
+        private void CheckpointEntered(Car car, Collider2D checkpoint)
         {
             var currentCheckpoint = checkpointSequence[_currentCheckpointIndex];
             if (!currentCheckpoint.Equals(checkpoint))

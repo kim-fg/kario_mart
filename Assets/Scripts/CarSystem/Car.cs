@@ -6,7 +6,7 @@ namespace KarioMart.CarSystem
 {
     public class Car : MonoBehaviour
     {
-        public event Action<Collider2D> OnEnterCheckpoint;
+        public event Action<Car, Collider2D> OnEnterCheckpoint;
         
         [SerializeField] private float accelerationScale = 1f;
         [SerializeField] private float reverseScale = 0.5f;
@@ -42,8 +42,13 @@ namespace KarioMart.CarSystem
         {
             if (other.CompareTag("Checkpoint"))
             {
-                OnEnterCheckpoint?.Invoke(other);
+                OnEnterCheckpoint?.Invoke(this, other);
             }
+        }
+
+        public void SetColor(Color color)
+        {
+            print($"Set car color to {color}");
         }
     }
 }
