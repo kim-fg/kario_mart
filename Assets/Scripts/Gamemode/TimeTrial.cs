@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace KarioMart.Gamemode
 {
-    public class TimeTrial : MonoBehaviour
+    public class TimeTrial : Gamemode
     {
         public event Action<float> OnSplit;
         public event Action<Lap> OnLapEnded;
         public event Action<Lap> OnNewRecord;
-        
-        [SerializeField] private Car car;
-        [SerializeField] private Collider2D[] checkpointSequence;
 
         private int _currentCheckpointIndex;
 
@@ -20,19 +17,12 @@ namespace KarioMart.Gamemode
         public Lap RecordLap { get; private set; } = Lap.Max;
         public bool RecordIsSet { get; private set; }
 
-        private void Awake()
+        protected override void Init()
         {
-            car.OnEnterCheckpoint += CheckpointEntered;
-
-            var dot = Vector2.Dot(Vector2.up, Vector2.up);
-            
-            // load lap record if it exists
-        }
-        
-        private void Start()
-        {
+            SpawnPlayerCar(_mapManager.StartGridPositions[0], "Keyboard&Mouse");
             StartLap();
         }
+
         private void StartLap()
         {
             _currentCheckpointIndex = 0;
@@ -40,15 +30,15 @@ namespace KarioMart.Gamemode
             CurrentLap.Start();
         }
 
-        private void CheckpointEntered(Car car, Collider2D checkpoint)
+        protected override void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint)
         {
-            var currentCheckpoint = checkpointSequence[_currentCheckpointIndex];
+            var currentCheckpoint = _mapManager.Checkpoints[_currentCheckpointIndex];
             if (!currentCheckpoint.Equals(checkpoint))
                 return;
             
             _currentCheckpointIndex++;
 
-            if (_currentCheckpointIndex.Equals(checkpointSequence.Length))
+            if (_currentCheckpointIndex.Equals(CheckpointCount))
             {
                 EndLap();
                 return;
@@ -75,7 +65,6 @@ namespace KarioMart.Gamemode
             LapCount++;
             
             OnLapEnded?.Invoke(CurrentLap);
-            
             
             StartLap();
         }

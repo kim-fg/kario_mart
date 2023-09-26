@@ -1132,6 +1132,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 286271487942965729, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 286271487942965729, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.749999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771441755348646291, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771441755348646291, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.0000002
+      objectReference: {fileID: 0}
     - target: {fileID: 2156693538090706683, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
       propertyPath: m_Name
       value: Start Grid
@@ -1175,6 +1191,26 @@ PrefabInstance:
     - target: {fileID: 2263007361300415766, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943278207871376649, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023942402853394144, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541765578105069516, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518631849917208975, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620407765863078821, guid: 30036cec0d390704391ba9c1cc81b194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
