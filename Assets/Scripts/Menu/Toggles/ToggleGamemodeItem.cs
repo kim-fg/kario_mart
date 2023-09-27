@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace KarioMart.Gamemodes.PVP
+namespace KarioMart.Menu.Toggles
 {
-    public class PvpGameOverScreen : MonoBehaviour
+    public class ToggleGamemodeItem : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

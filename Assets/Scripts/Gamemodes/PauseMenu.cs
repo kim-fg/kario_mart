@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using KarioMart.Util;
 using UnityEngine;
 
-namespace KarioMart
+namespace KarioMart.Gamemodes
 {
     public class PauseMenu : MonoBehaviour
     {

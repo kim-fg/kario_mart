@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace KarioMart
+namespace KarioMart.Menu
 {
-    public class MapSelector : MonoBehaviour
+    public class GamemodeDisplay : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

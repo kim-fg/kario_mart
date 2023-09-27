@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.Toggles
 {
     [RequireComponent(typeof(Toggle))]
     public class ToggleExt : MonoBehaviour

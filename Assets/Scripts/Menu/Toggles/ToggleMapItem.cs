@@ -2,11 +2,9 @@ using System;
 using KarioMart.Map;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.Toggles
 {
     public class ToggleMapItem : ToggleExt
     {

@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using KarioMart.Gamemodes;
 using UnityEngine;
 
-namespace KarioMart
+namespace KarioMart.Gamemodes
 {
     public class GamemodeManager : MonoBehaviour
     {

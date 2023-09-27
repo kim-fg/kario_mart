@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eab64680d4724a48be5021f34bdc8d2, type: 3}
   m_Name: Time Trial Gamemode Data
   m_EditorClassIdentifier: 
-  displayName: Gamemode
-  description: Gamemode description ....
-  gamemodePrefab: {fileID: 0}
-  displayImage: {fileID: 0}
+  displayName: Time Trial
+  description: Attempt a record lap
+  gamemodePrefab: {fileID: 6363016150164517555, guid: 1f6cc70046ef07e4a93c4c75893d7b7a, type: 3}
+  displayImage: {fileID: 21300000, guid: c8b8dbd26008a4d4d9f9e2d5b94084da, type: 3}

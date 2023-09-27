@@ -1,9 +1,10 @@
 using KarioMart.Map;
+using KarioMart.Menu.Toggles;
 using KarioMart.Util;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.Submenus
 {
     public class PlayMenu : SubMenu
     {

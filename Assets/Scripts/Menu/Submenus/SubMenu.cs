@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.Submenus
 {
     public class SubMenu : MonoBehaviour
     {

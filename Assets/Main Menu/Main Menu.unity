@@ -891,7 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672082091}
   m_Layer: 5
-  m_Name: Map Select Inset
+  m_Name: Inset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 948969522}
   - component: {fileID: 948969523}
   m_Layer: 5
-  m_Name: Gamemode Area
+  m_Name: Gamemode Display Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,12 +1523,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 948969521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742d6706d1a9c2b4284cf10c8af38f09, type: 3}
+  m_Script: {fileID: 11500000, guid: 336bcf61ec5c69d498ab5a4df9f0f8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapTitleLabel: {fileID: 0}
-  mapImage: {fileID: 0}
-  mapDescriptionLabel: {fileID: 0}
 --- !u!1 &985627580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256867804}
   m_Layer: 5
-  m_Name: Gamemode Area Inset
+  m_Name: Inset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2263,7 +2260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610833742}
   m_Layer: 5
-  m_Name: Sub Menu Inset
+  m_Name: Inset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2866,7 +2863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973728828}
   m_Layer: 5
-  m_Name: Tabs Inset
+  m_Name: Inset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2908,7 +2905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2072574602}
   m_Layer: 5
-  m_Name: Map Area Inset
+  m_Name: Inset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

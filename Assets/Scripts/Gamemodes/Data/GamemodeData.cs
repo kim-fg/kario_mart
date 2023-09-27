@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using KarioMart.Gamemodes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace KarioMart
+namespace KarioMart.Gamemodes.Data
 {
     [CreateAssetMenu(menuName = "Data/Gamemode")]
     public class GamemodeData : ScriptableObject

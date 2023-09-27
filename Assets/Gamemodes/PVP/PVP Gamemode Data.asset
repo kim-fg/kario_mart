@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eab64680d4724a48be5021f34bdc8d2, type: 3}
   m_Name: PVP Gamemode Data
   m_EditorClassIdentifier: 
-  displayName: Gamemode
-  description: Gamemode description ....
-  gamemodePrefab: {fileID: 0}
-  displayImage: {fileID: 0}
+  displayName: PVP
+  description: Play against a friend
+  gamemodePrefab: {fileID: 7059963711202571841, guid: 866a75a0aaa62e74d8536a3e6d20f7ed, type: 3}
+  displayImage: {fileID: 21300000, guid: 23ed0a628211d6449a1a990f4d197364, type: 3}
