@@ -1,36 +1,39 @@
+using KarioMart.Gamemodes.Data;
 using KarioMart.Map;
 using KarioMart.Menu.Toggles;
 using KarioMart.Util;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace KarioMart.Menu.Submenus
 {
     public class PlayMenu : SubMenu
     {
+        // move from here
         [Header("Maps")]
         [SerializeField] private MapData[] maps;
-        [FormerlySerializedAs("mapDataTogglePrefab")] [FormerlySerializedAs("mapItemPrefab")] [SerializeField] private MapToggle mapTogglePrefab;
+        [SerializeField] private MapToggle mapTogglePrefab;
         [SerializeField] private Transform mapListTransform;
+        
+        [Header("Gamemodes")]
+        [SerializeField] private GamemodeData[] gamemodes;
+        [SerializeField] private GamemodeToggle gamemodeTogglePrefab;
+        [SerializeField] private Transform gamemodeListTransform;
+        // to here
+        // into the display scripts
+        // possibly excluding data
         
         [Header("Display")] 
         [SerializeField] private MapDisplay mapDisplay;
 
-        private ToggleGroup _toggleGroup;
-
-        public MapData SelectedMap { get; private set; }
-
-        private void Awake()
-        {
-            _toggleGroup = GetComponent<ToggleGroup>();
-        }
+        private MapData _selectedMap;
+        private GamemodeData _selectedGamemode;
 
         private void Start()
         {
             Clean();
             
             PopulateMapItems();
+            PopulateGamemodeItems();
         }
 
         private void Clean()
@@ -39,28 +42,45 @@ namespace KarioMart.Menu.Submenus
             {
                 Destroy(mapListTransform.GetChild(i).gameObject);
             }
+            
+            for (int i = 0; i < gamemodeListTransform.childCount; i++)
+            {
+                Destroy(gamemodeListTransform.GetChild(i).gameObject);
+            }
         }
-
         private void PopulateMapItems()
         {
             for (int i = 0; i < maps.Length; i++)
             {
                 MapToggle mapToggle = Instantiate(mapTogglePrefab, mapListTransform);
                 mapToggle.Init(maps[i]);
-                mapToggle.OnDataChanged += SelectData;
+                mapToggle.OnDataChanged += SelectMap;
                 mapToggle.enabled = true;
             }
         }
 
-        private void SelectData(MapData mapData)
+        private void PopulateGamemodeItems()
         {
-            SelectedMap = mapData;
+            for (int i = 0; i < gamemodes.Length; i++)
+            {
+                GamemodeToggle gamemodeToggle = Instantiate(gamemodeTogglePrefab, gamemodeListTransform);
+                gamemodeToggle.Init(gamemodes[i]);
+                gamemodeToggle.OnDataChanged += SelectGamemode;
+                gamemodeToggle.enabled = true;
+            }
+        }
+
+        private void SelectMap(MapData mapData)
+        {
+            _selectedMap = mapData;
             mapDisplay.DisplayMap(mapData);
         }
         
-        public void LoadSelectedMap()
+        private void SelectGamemode(GamemodeData gamemode)
         {
-            SceneLoader.Instance.LoadMap(SelectedMap);
+            _selectedGamemode = gamemode;
         }
+        
+        public void StartGameSession() => GameManager.Instance.StartSession(_selectedMap, _selectedGamemode);
     }
 }

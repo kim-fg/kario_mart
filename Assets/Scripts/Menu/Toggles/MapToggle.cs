@@ -10,9 +10,9 @@ namespace KarioMart.Menu.Toggles
     {
         public override void Init(MapData data)
         {
-            _data = data;
-            titleLabel.text = _data.DisplayName;
-            displayImage.sprite = _data.DisplayImage;
+            Data = data;
+            titleLabel.text = Data.DisplayName;
+            displayImage.sprite = Data.DisplayImage;
         }
     }
 }

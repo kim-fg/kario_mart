@@ -1241,7 +1241,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 347d8312de48c6b45894ce923d461bf9, type: 2}
   mapTogglePrefab: {fileID: 1845849532}
   mapListTransform: {fileID: 503279675}
+  gamemodes:
+  - {fileID: 11400000, guid: 04d26393732609e47aa3222e968b1885, type: 2}
+  - {fileID: 11400000, guid: 3eb64ae3df4f59149be236318ed12d93, type: 2}
+  gamemodeTogglePrefab: {fileID: 4113560350785266760, guid: 5d52a1bd400332a479ef39d537acc50b, type: 3}
+  gamemodeListTransform: {fileID: 1645142914}
   mapDisplay: {fileID: 353705284}
+  gamemodeManagerPrefab: {fileID: 0}
 --- !u!1001 &891578213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2680,7 +2686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7796422823753739515, guid: f20ec067eb25acf46b6f70d4ead5057c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSelectedMap
+      value: StartGameSession
       objectReference: {fileID: 0}
     - target: {fileID: 7796422823753739515, guid: f20ec067eb25acf46b6f70d4ead5057c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

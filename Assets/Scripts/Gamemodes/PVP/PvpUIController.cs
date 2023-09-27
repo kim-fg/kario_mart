@@ -38,7 +38,7 @@ namespace KarioMart.Gamemodes.PVP
         public void OnReturnToMenu()
         {
             Time.timeScale = 1;
-            SceneLoader.Instance.LoadMainMenu();
+            GameManager.Instance.LoadMainMenu();
             
             // unblock pause menu
             if (PauseMenu.IsBlocked)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6556036271747024444}
   - component: {fileID: 3427033237761323676}
   m_Layer: 0
-  m_Name: SceneLoader
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,3 +50,4 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  gamemodeManagerPrefab: {fileID: 9061078427510196918, guid: 86051f1ada2e8a546a03177eddeabf9c, type: 3}

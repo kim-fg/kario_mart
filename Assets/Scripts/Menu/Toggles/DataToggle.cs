@@ -18,9 +18,8 @@ namespace KarioMart.Menu.Toggles
         [Header("Toggle")]
         [SerializeField] private Image _backgroundImage;
         private Color _backgroundColor;
-        protected T _data;
-        
-        protected Toggle Toggle { get; private set; }
+        private Toggle _toggle;
+        protected T Data;
 
         private void Awake()
         {
@@ -28,12 +27,12 @@ namespace KarioMart.Menu.Toggles
             // so i have to enable it AND the background image on init
             // i would prefer if i didnt have to do this manually
             // but i do.
-            Toggle = GetComponent<Toggle>();
-            Toggle.enabled = true;
+            _toggle = GetComponent<Toggle>();
+            _toggle.enabled = true;
             // disabling the standard color transition because it doesnt
             // blend correctly
-            Toggle.transition = Selectable.Transition.None;
-            Toggle.group = transform.parent.GetComponent<ToggleGroup>();
+            _toggle.transition = Selectable.Transition.None;
+            _toggle.group = transform.parent.GetComponent<ToggleGroup>();
             
             if (_backgroundImage)
             {
@@ -41,7 +40,7 @@ namespace KarioMart.Menu.Toggles
                 _backgroundColor = _backgroundImage.color;
             }
             
-            Toggle.onValueChanged.AddListener(OnValueChanged);
+            _toggle.onValueChanged.AddListener(OnValueChanged);
         }
 
         public abstract void Init(T data);
@@ -49,7 +48,7 @@ namespace KarioMart.Menu.Toggles
         private void OnValueChanged(bool toggled)
         {
             SetColor(toggled);
-            OnDataChanged?.Invoke(_data);
+            OnDataChanged?.Invoke(Data);
         }
 
         private void Reset()
@@ -64,8 +63,8 @@ namespace KarioMart.Menu.Toggles
         // I also have to do this manually because the standard
         // color transition doesn't blend...
 
-        private Color NormalColor => _backgroundColor * Toggle.colors.normalColor;
-        private Color ToggledColor => _backgroundColor * Toggle.colors.selectedColor;
+        private Color NormalColor => _backgroundColor * _toggle.colors.normalColor;
+        private Color ToggledColor => _backgroundColor * _toggle.colors.selectedColor;
         protected void SetColor(bool toggled) => _backgroundImage.color = toggled ? ToggledColor : NormalColor;
     }
 }

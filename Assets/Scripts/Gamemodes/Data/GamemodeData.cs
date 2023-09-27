@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KarioMart.Gamemodes.Data
 {
@@ -7,12 +8,12 @@ namespace KarioMart.Gamemodes.Data
     {
         [SerializeField] private string displayName = "Gamemode";
         [SerializeField] private string description = "Gamemode description ....";
-        [SerializeField] private Gamemode gamemodePrefab;
+        [FormerlySerializedAs("gamemodePrefab")] [SerializeField] private Gamemode prefab;
         [SerializeField] private Sprite displayImage;
         
         public string DisplayName => displayName;
         public string Description => description;
-        public Gamemode GamemodePrefab => gamemodePrefab;
+        public Gamemode Prefab => prefab;
         public Sprite DisplayImage => displayImage;
     }
 }
