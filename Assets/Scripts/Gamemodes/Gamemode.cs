@@ -21,7 +21,7 @@ namespace KarioMart.Gamemodes
             Init();
         }
 
-        public abstract void Init();
+        protected abstract void Init();
         protected abstract void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint);
 
         public void GameOver() => OnGameOver?.Invoke();

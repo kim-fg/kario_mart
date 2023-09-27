@@ -16,6 +16,8 @@ namespace KarioMart.CarSystem
 
         private void OnMove(InputValue inputValue)
         {
+            print("tried move");
+            
             var input = inputValue.Get<Vector2>();
             _car.ApplySteering(input.x);
             _car.ApplyGas(input.y);

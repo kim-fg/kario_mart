@@ -18,7 +18,7 @@ namespace KarioMart.Gamemodes.TimeTrial
         public Lap RecordLap { get; private set; } = Lap.Max;
         public bool RecordIsSet { get; private set; }
 
-        public override void Init()
+        protected override void Init()
         {
             SpawnPlayerCar(_mapManager.StartGridPositions[0], "Keyboard&Mouse");
             StartLap();

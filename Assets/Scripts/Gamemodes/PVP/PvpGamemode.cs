@@ -25,7 +25,7 @@ namespace KarioMart.Gamemodes.PVP
             return _carRacePositions[car];
         }
 
-        public override void Init()
+        protected override void Init()
         {
             _carRacePositions = new Dictionary<Car, RacePosition>();
             
