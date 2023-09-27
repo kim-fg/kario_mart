@@ -30,8 +30,12 @@ namespace KarioMart.Gamemodes
             TogglePaused();
             _gamemodeManager.ActiveGamemode.GameOver();
         }
-        
-        public void MainMenu() => GameManager.Instance.LoadMainMenu();
+
+        public void MainMenu()
+        {
+            TogglePaused();
+            GameManager.Instance.LoadMainMenu();  
+        } 
 
         private void TogglePaused()
         {

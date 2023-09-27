@@ -10,13 +10,23 @@ namespace KarioMart.Gamemodes.PVP
         [SerializeField] private PvpGameOverScreen gameOverScreen;
         
         private PvpGamemode _pvpGamemode;
+
+        private void OnEnable()
+        {
+            PauseMenu.OnPauseToggled += OnPauseToggled;
+        }
+
         private void Awake()
         {
             _pvpGamemode = transform.root.GetComponent<PvpGamemode>();
             _pvpGamemode.OnGameOver += OnGameOver;
             
             gameOverScreen.gameObject.SetActive(false);
-            PauseMenu.OnPauseToggled += OnPauseToggled;
+        }
+
+        private void OnDisable()
+        {
+            PauseMenu.OnPauseToggled -= OnPauseToggled;
         }
 
         private void OnPauseToggled(bool paused)
