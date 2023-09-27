@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 624e3856e8b72f249a23285ae067fd50
-    m_Address: Assets/Main Menu/Prefabs/Map Item.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 925546cfae5fefe4db347642226e6d63, type: 2}
   m_SchemaSet:

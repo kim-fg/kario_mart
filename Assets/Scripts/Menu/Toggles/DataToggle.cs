@@ -1,13 +1,24 @@
+using System;
+using KarioMart.Map;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace KarioMart.Menu.Toggles
 {
     [RequireComponent(typeof(Toggle))]
-    public class ToggleExt : MonoBehaviour
+    public abstract class DataToggle<T> : MonoBehaviour where T: ScriptableObject
     {
+        public event Action<T> OnDataChanged;
+
+        [Header("Display")]
+        [SerializeField] protected TextMeshProUGUI titleLabel;
+        [SerializeField] protected Image displayImage;
+        
+        [Header("Toggle")]
         [SerializeField] private Image _backgroundImage;
         private Color _backgroundColor;
+        protected T _data;
         
         protected Toggle Toggle { get; private set; }
 
@@ -29,6 +40,16 @@ namespace KarioMart.Menu.Toggles
                 _backgroundImage.enabled = true;
                 _backgroundColor = _backgroundImage.color;
             }
+            
+            Toggle.onValueChanged.AddListener(OnValueChanged);
+        }
+
+        public abstract void Init(T data);
+
+        private void OnValueChanged(bool toggled)
+        {
+            SetColor(toggled);
+            OnDataChanged?.Invoke(_data);
         }
 
         private void Reset()

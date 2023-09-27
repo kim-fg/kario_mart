@@ -1239,7 +1239,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac2228a8d7ffd4d4891bd277577ec1b5, type: 2}
   - {fileID: 11400000, guid: 1b55db35524e40141bd69de6f7668f5a, type: 2}
   - {fileID: 11400000, guid: 347d8312de48c6b45894ce923d461bf9, type: 2}
-  mapItemPrefab: {fileID: 1845849532}
+  mapTogglePrefab: {fileID: 1845849532}
   mapListTransform: {fileID: 503279675}
   mapDisplay: {fileID: 353705284}
 --- !u!1001 &891578213
@@ -2297,6 +2297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1645142914}
   - component: {fileID: 1645142915}
+  - component: {fileID: 1645142916}
   m_Layer: 5
   m_Name: Gamemode List
   m_TagString: Untagged
@@ -2352,6 +2353,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1645142916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645142913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &1762360181
 GameObject:
   m_ObjectHideFlags: 0

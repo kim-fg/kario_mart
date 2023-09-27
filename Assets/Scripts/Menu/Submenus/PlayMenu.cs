@@ -2,6 +2,7 @@ using KarioMart.Map;
 using KarioMart.Menu.Toggles;
 using KarioMart.Util;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace KarioMart.Menu.Submenus
@@ -10,7 +11,7 @@ namespace KarioMart.Menu.Submenus
     {
         [Header("Maps")]
         [SerializeField] private MapData[] maps;
-        [SerializeField] private ToggleMapItem mapItemPrefab;
+        [FormerlySerializedAs("mapDataTogglePrefab")] [FormerlySerializedAs("mapItemPrefab")] [SerializeField] private MapToggle mapTogglePrefab;
         [SerializeField] private Transform mapListTransform;
         
         [Header("Display")] 
@@ -44,14 +45,14 @@ namespace KarioMart.Menu.Submenus
         {
             for (int i = 0; i < maps.Length; i++)
             {
-                ToggleMapItem mapItem = Instantiate(mapItemPrefab, mapListTransform);
-                mapItem.Init(maps[i]);
-                mapItem.OnMapChanged += SelectMap;
-                mapItem.enabled = true;
+                MapToggle mapToggle = Instantiate(mapTogglePrefab, mapListTransform);
+                mapToggle.Init(maps[i]);
+                mapToggle.OnDataChanged += SelectData;
+                mapToggle.enabled = true;
             }
         }
 
-        private void SelectMap(MapData mapData)
+        private void SelectData(MapData mapData)
         {
             SelectedMap = mapData;
             mapDisplay.DisplayMap(mapData);
