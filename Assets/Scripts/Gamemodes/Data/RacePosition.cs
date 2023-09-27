@@ -1,4 +1,4 @@
-namespace KarioMart.Gamemode.Data
+namespace KarioMart.Gamemodes.Data
 {
     public struct RacePosition
     {

@@ -3,7 +3,7 @@ using KarioMart.CarSystem;
 using TMPro;
 using UnityEngine;
 
-namespace KarioMart.Gamemode.PVP
+namespace KarioMart.Gamemodes.PVP
 {
     public class PvpPlayerInfoPanel : MonoBehaviour
     {

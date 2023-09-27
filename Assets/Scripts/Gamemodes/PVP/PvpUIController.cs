@@ -2,7 +2,7 @@ using System;
 using KarioMart.Util;
 using UnityEngine;
 
-namespace KarioMart.Gamemode.PVP
+namespace KarioMart.Gamemodes.PVP
 {
     public class PvpUIController : MonoBehaviour
     {
@@ -16,20 +16,33 @@ namespace KarioMart.Gamemode.PVP
             _pvpGamemode.OnGameOver += OnGameOver;
             
             gameOverScreen.gameObject.SetActive(false);
+            PauseMenu.OnPauseToggled += OnPauseToggled;
+        }
+
+        private void OnPauseToggled(bool paused)
+        {
+            hud.SetActive(!paused);
         }
 
         private void OnGameOver()
         {
             hud.SetActive(false);
             gameOverScreen.gameObject.SetActive(true);
-
             Time.timeScale = 0;
+
+            //block pause menu
+            if (!PauseMenu.IsBlocked)
+                PauseMenu.ToggleBlocked(gameObject);
         }
 
         public void OnReturnToMenu()
         {
             Time.timeScale = 1;
             SceneLoader.Instance.LoadMainMenu();
+            
+            // unblock pause menu
+            if (PauseMenu.IsBlocked)
+                PauseMenu.ToggleBlocked(gameObject);
         }
     }
 }

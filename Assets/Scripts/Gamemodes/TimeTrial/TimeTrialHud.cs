@@ -1,9 +1,9 @@
 using System.Collections;
-using KarioMart.Gamemode.Data;
+using KarioMart.Gamemodes.Data;
 using TMPro;
 using UnityEngine;
 
-namespace KarioMart.Gamemode.TimeTrial
+namespace KarioMart.Gamemodes.TimeTrial
 {
     public class TimeTrialHud : MonoBehaviour
     {

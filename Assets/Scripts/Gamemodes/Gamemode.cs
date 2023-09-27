@@ -4,7 +4,7 @@ using KarioMart.Map;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace KarioMart.Gamemode
+namespace KarioMart.Gamemodes
 {
     public abstract class Gamemode : MonoBehaviour
     {
@@ -21,10 +21,10 @@ namespace KarioMart.Gamemode
             Init();
         }
 
-        protected abstract void Init();
+        public abstract void Init();
         protected abstract void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint);
 
-        protected void GameOver() => OnGameOver?.Invoke();
+        public void GameOver() => OnGameOver?.Invoke();
 
         protected Car SpawnPlayerCar(Transform spawnTransform, string controlScheme)
         {

@@ -1,9 +1,9 @@
 using System;
 using KarioMart.CarSystem;
-using KarioMart.Gamemode.Data;
+using KarioMart.Gamemodes.Data;
 using UnityEngine;
 
-namespace KarioMart.Gamemode.TimeTrial
+namespace KarioMart.Gamemodes.TimeTrial
 {
     public class TimeTrial : Gamemode
     {
@@ -18,7 +18,7 @@ namespace KarioMart.Gamemode.TimeTrial
         public Lap RecordLap { get; private set; } = Lap.Max;
         public bool RecordIsSet { get; private set; }
 
-        protected override void Init()
+        public override void Init()
         {
             SpawnPlayerCar(_mapManager.StartGridPositions[0], "Keyboard&Mouse");
             StartLap();

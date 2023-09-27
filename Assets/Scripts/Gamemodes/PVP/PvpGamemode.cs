@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using KarioMart.CarSystem;
-using KarioMart.Gamemode.Data;
+using KarioMart.Gamemodes.Data;
 using UnityEngine;
 
-namespace KarioMart.Gamemode.PVP
+namespace KarioMart.Gamemodes.PVP
 {
     public class PvpGamemode : Gamemode
     {
@@ -25,7 +25,7 @@ namespace KarioMart.Gamemode.PVP
             return _carRacePositions[car];
         }
 
-        protected override void Init()
+        public override void Init()
         {
             _carRacePositions = new Dictionary<Car, RacePosition>();
             
