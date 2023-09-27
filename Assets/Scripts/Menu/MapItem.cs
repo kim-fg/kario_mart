@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using KarioMart.Map;
 using TMPro;
 using UnityEngine;
@@ -8,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace KarioMart
+namespace KarioMart.Menu
 {
     public class MapItem : Selectable
     {

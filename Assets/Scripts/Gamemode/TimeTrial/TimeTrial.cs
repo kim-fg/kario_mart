@@ -1,8 +1,9 @@
 using System;
 using KarioMart.CarSystem;
+using KarioMart.Gamemode.Data;
 using UnityEngine;
 
-namespace KarioMart.Gamemode
+namespace KarioMart.Gamemode.TimeTrial
 {
     public class TimeTrial : Gamemode
     {

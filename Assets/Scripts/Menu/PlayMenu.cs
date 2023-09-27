@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using KarioMart.Map;
-using KarioMart.Menu;
 using KarioMart.Util;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace KarioMart
+namespace KarioMart.Menu
 {
     public class PlayMenu : SubMenu
     {

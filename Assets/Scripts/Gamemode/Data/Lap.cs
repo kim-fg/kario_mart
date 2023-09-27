@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KarioMart.Gamemode
+namespace KarioMart.Gamemode.Data
 {
     public class Lap
     {

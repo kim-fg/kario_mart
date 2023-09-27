@@ -9,7 +9,7 @@ namespace KarioMart.Util
     public class SceneLoader : MonoBehaviour
     {
         public static SceneLoader Instance { get; private set; }
-        
+        [SerializeField] private bool loadMainMenuOnStart = true;
         [SerializeField] private AssetReference mainMenu;
         
         private void Awake()
@@ -23,7 +23,9 @@ namespace KarioMart.Util
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                mainMenu.LoadSceneAsync();
+                
+                if (loadMainMenuOnStart)
+                    LoadMainMenu();
                 return;
             }
             
@@ -35,5 +37,7 @@ namespace KarioMart.Util
         {
             Addressables.LoadSceneAsync(mapData.Scene);
         }
+
+        public void LoadMainMenu() => mainMenu.LoadSceneAsync();
     }
 }

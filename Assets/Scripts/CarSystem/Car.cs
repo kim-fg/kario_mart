@@ -7,20 +7,29 @@ namespace KarioMart.CarSystem
     public class Car : MonoBehaviour
     {
         public event Action<Car, Collider2D> OnEnterCheckpoint;
+        private static int _maxID = 0;
         
+        [Header("Data")]
         [SerializeField] private float accelerationScale = 1f;
         [SerializeField] private float reverseScale = 0.5f;
         [SerializeField] private float steeringScale = 1f;
         [SerializeField] private float maxSpeed = 5f;
 
+        [Header("Graphics")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
+
         private Rigidbody2D _rb2d;
         private float _gas;
         private float _steering;
+        private int _raceID;
+        
         public float Speed => _rb2d.velocity.magnitude;
+        public int RaceID => _raceID;
 
         private void Awake()
         {
             _rb2d = GetComponent<Rigidbody2D>();
+            _raceID = _maxID++;
         }
 
         public void ApplyGas(float gas) => _gas = Maths.ClampNeg1Pos1(gas);
@@ -48,7 +57,7 @@ namespace KarioMart.CarSystem
 
         public void SetColor(Color color)
         {
-            print($"Set car color to {color}");
+            spriteRenderer.color = color;
         }
     }
 }

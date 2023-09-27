@@ -8,6 +8,8 @@ namespace KarioMart.Gamemode
 {
     public abstract class Gamemode : MonoBehaviour
     {
+        public event Action OnGameOver;
+        
         [SerializeField] private PlayerCarController playerPrefab;
         
         protected MapManager _mapManager;
@@ -21,6 +23,8 @@ namespace KarioMart.Gamemode
 
         protected abstract void Init();
         protected abstract void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint);
+
+        protected void GameOver() => OnGameOver?.Invoke();
 
         protected Car SpawnPlayerCar(Transform spawnTransform, string controlScheme)
         {

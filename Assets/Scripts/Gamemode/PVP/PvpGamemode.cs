@@ -1,15 +1,29 @@
+using System;
 using System.Collections.Generic;
 using KarioMart.CarSystem;
+using KarioMart.Gamemode.Data;
 using UnityEngine;
 
-namespace KarioMart.Gamemode
+namespace KarioMart.Gamemode.PVP
 {
     public class PvpGamemode : Gamemode
     {
+        public event Action<Car> OnPlayerProgress;
+        
+        [SerializeField] private int lapCount = 5;
+        
+        [Header("Player graphics")]
         [SerializeField] private Color playerOneColor = Color.blue;
         [SerializeField] private Color playerTwoColor = Color.red;
         
         private Dictionary<Car, RacePosition> _carRacePositions;
+        
+        public int LapCount => lapCount;
+
+        public RacePosition GetRacePosition(Car car)
+        {
+            return _carRacePositions[car];
+        }
 
         protected override void Init()
         {
@@ -38,25 +52,25 @@ namespace KarioMart.Gamemode
             racePosition.CheckpointCounter++;
 
             if (racePosition.CheckpointCounter == CheckpointCount)
+            {    
                 racePosition.EndLap();
+                
+                if (racePosition.LapCounter == LapCount)
+                {
+                    print($"Game over! Player {car.RaceID + 1} wins :D");
+                    GameOver();
+                    return;
+                }
+            }
+                
             
-            print($"{car} - {racePosition.PositionScore(CheckpointCount)}");
+            //print($"{car} - {racePosition.PositionScore(CheckpointCount)}");
             
             _carRacePositions[car] = racePosition;
-        }
-    }
-
-    struct RacePosition
-    {
-        public int CheckpointCounter;
-        public int LapCounter;
-
-        public int PositionScore(int lapValue) => LapCounter * lapValue + CheckpointCounter;
-
-        public void EndLap()
-        {
-            CheckpointCounter = 0;
-            LapCounter++;
+            
+            
+            
+            OnPlayerProgress?.Invoke(car);
         }
     }
 }
