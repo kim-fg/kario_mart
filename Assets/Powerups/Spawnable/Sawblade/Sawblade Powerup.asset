@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3356ff7b8e42d7babce81094c0e321, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec01fb5e80c4b74780754731f330e6b, type: 3}
   m_Name: Sawblade Powerup
   m_EditorClassIdentifier: 
+  effectTime: 0
+  objectLifeTime: 0
   spawnBehind: 0
-  spawnablePrefab: {fileID: 0}
+  spawnablePrefab: {fileID: 9160255716530029877, guid: f4cc494377a64fb4a86c1a0d1dc3a530, type: 3}

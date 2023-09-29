@@ -1,3 +1,4 @@
+using System.Collections;
 using KarioMart.CarSystem;
 using UnityEngine;
 
@@ -5,6 +6,12 @@ namespace KarioMart.Powerups
 {
     public abstract class Powerup : ScriptableObject
     {
-        public abstract void Activate(Car target);
+        [Header("Data")]
+        [SerializeField] protected float effectTime = 3f;
+        
+        public abstract IEnumerator Activate(Car target);
+
+        public float EffectTime => effectTime;
+        protected WaitForSeconds EffectTimeWait => new(effectTime);
     }
 }
