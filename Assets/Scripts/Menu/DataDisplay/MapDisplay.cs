@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.DataDisplay
 {
     public class MapDisplay : MonoBehaviour
     {

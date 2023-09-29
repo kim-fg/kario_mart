@@ -1,5 +1,6 @@
 using KarioMart.Gamemodes.Data;
 using KarioMart.Map;
+using KarioMart.Menu.DataDisplay;
 using KarioMart.Menu.Toggles;
 using KarioMart.Util;
 using UnityEngine;

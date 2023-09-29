@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 789630697837070225}
   - component: {fileID: 3391826960915310404}
   - component: {fileID: 518208497306265926}
+  - component: {fileID: 4959165423037423115}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -199,6 +200,18 @@ MonoBehaviour:
   steeringScale: 3
   maxSpeed: 10
   spriteRenderer: {fileID: 7872353116436661655}
+--- !u!114 &4959165423037423115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6225252408047193440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502b8bcd5a4d5614e80b60be3f8d7487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6790827955401395024
 GameObject:
   m_ObjectHideFlags: 0

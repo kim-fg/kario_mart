@@ -1247,7 +1247,6 @@ MonoBehaviour:
   gamemodeTogglePrefab: {fileID: 4113560350785266760, guid: 5d52a1bd400332a479ef39d537acc50b, type: 3}
   gamemodeListTransform: {fileID: 1645142914}
   mapDisplay: {fileID: 353705284}
-  gamemodeManagerPrefab: {fileID: 0}
 --- !u!1001 &891578213
 PrefabInstance:
   m_ObjectHideFlags: 0

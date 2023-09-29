@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KarioMart.Menu
+namespace KarioMart.Menu.DataDisplay
 {
     public class GamemodeDisplay : MonoBehaviour
     {
