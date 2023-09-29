@@ -141,7 +141,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardLeft",
+                    "groups": "KeyboardLeft;Keyboard&Mouse",
                     "action": "UsePowerup",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -152,7 +152,7 @@
                     "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardRight",
+                    "groups": "KeyboardRight;Keyboard&Mouse",
                     "action": "UsePowerup",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -8,13 +8,20 @@ namespace KarioMart.Powerups.Applied
     public class TurboPowerup : Powerup
     {
         [SerializeField] private float addedMaxSpeed = 3f;
+        [SerializeField] private float addedAcceleration = 3f;
 
         public override IEnumerator Activate(Car target)
         {
-            var prevMaxSpeed = target.MaxSpeed;
-            target.MaxSpeed = prevMaxSpeed + addedMaxSpeed;
+            var prevSpeed = (target.MaxSpeed, target.AccelerationScale);
+            target.MaxSpeed = prevSpeed.MaxSpeed + addedMaxSpeed;
+            target.AccelerationScale = prevSpeed.AccelerationScale + addedAcceleration;
+            
             yield return EffectTimeWait;
-            target.MaxSpeed = prevMaxSpeed;
+            
+            target.MaxSpeed = prevSpeed.MaxSpeed;
+            target.AccelerationScale = prevSpeed.AccelerationScale;
+            
+            EndEffect(target);
         }
     }
 }

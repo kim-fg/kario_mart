@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Glint
+    m_Hash: 907098204
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: powerup_box_0
+      m_Hash: 627823666
+      m_Sprite: {fileID: 1593237428, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1593237428, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+    - m_Name: powerup_box_1
+      m_Hash: 309126308
+      m_Sprite: {fileID: 192258561, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 192258561, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+    - m_Name: powerup_box_2
+      m_Hash: 191214878
+      m_Sprite: {fileID: -1383714284, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1383714284, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+    - m_Name: powerup_box_3
+      m_Hash: 1013089672
+      m_Sprite: {fileID: -53882820, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -53882820, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+    - m_Name: powerup_box_4
+      m_Hash: 570822699
+      m_Sprite: {fileID: -1726168661, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1726168661, guid: 98a4ff2976a267b44b40798147a637cc, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 5
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638316011267228837
+  m_Version: 1

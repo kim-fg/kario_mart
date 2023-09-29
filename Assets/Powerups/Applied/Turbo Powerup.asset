@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec01fb5e80c4b74780754731f330e6b, type: 3}
-  m_Name: Sawblade Powerup
+  m_Script: {fileID: 11500000, guid: 4d38d9f0229a4c43b1e544d18eb207df, type: 3}
+  m_Name: Turbo Powerup
   m_EditorClassIdentifier: 
   effectTime: 3
-  objectLifeTime: 3
-  startSpeed: 10
-  spawnBehind: 0
-  spawnedPowerupPrefab: {fileID: 8639810525496024750, guid: f4cc494377a64fb4a86c1a0d1dc3a530, type: 3}
+  addedMaxSpeed: 10
+  addedAcceleration: 10

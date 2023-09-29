@@ -34,7 +34,11 @@ namespace KarioMart.Powerups
             }
         }
 
-        private Powerup GetRandomPowerup() => powerups[Random.Range(0, powerups.Length)];
+        private Powerup GetRandomPowerup()
+        {
+            var index = Random.Range(0, powerups.Length); 
+            return powerups[index];   
+        }
         
         private void ToggleActive()
         {

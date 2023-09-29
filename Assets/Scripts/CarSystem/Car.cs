@@ -27,6 +27,8 @@ namespace KarioMart.CarSystem
         public int RaceID => _raceID;
         public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
 
+        public float AccelerationScale { get => accelerationScale; set => accelerationScale = value; }
+
         private void Awake()
         {
             _rb2d = GetComponent<Rigidbody2D>();
