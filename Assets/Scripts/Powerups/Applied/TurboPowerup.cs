@@ -21,7 +21,7 @@ namespace KarioMart.Powerups.Applied
             target.MaxSpeed = prevSpeed.MaxSpeed;
             target.AccelerationScale = prevSpeed.AccelerationScale;
             
-            EndEffect(target);
+            EndActivation(target);
         }
     }
 }

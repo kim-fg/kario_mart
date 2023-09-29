@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using KarioMart.CarSystem;
 using KarioMart.Powerups.Spawnable.Components;
@@ -27,9 +28,14 @@ namespace KarioMart.Powerups.Spawnable
             
             yield return null;
             
-            EndEffect(target);
+            EndActivation(target);
         }
 
-        public abstract IEnumerator OnHit(Car target);
+        public abstract IEnumerator OnHit(Car target, SpawnedPowerup instance);
+        
+        protected void EndHitEffect(SpawnedPowerup instance)
+        {
+            Destroy(instance.gameObject);
+        }
     }
 }

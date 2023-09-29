@@ -21,8 +21,7 @@ namespace KarioMart.CarSystem
         {
             if (HasPowerup)
                 return false;
-
-            print($"{_car} got powerup: {powerup}");
+            
             _currentPowerup = powerup;
             return true;
         }

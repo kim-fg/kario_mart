@@ -6,22 +6,31 @@ namespace KarioMart.Powerups.Spawnable.Components
 {
     public class SpawnedPowerup : MonoBehaviour
     {
-        [SerializeField] private bool destroyOnHit = true;
         [SerializeField] protected SpawnablePowerup data;
 
         private Car _spawner;
         private Rigidbody2D _rb;
+        private Collider2D _collider;
+        private SpriteRenderer _spriteRenderer;
+        private float _spawnTime;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void Start()
         {
             _rb.velocity = _spawner.transform.up * data.StartSpeed;
-            print(_rb.velocity);
-            Destroy(gameObject, data.ObjectLifeTime);
+            _spawnTime = Time.time;
+        }
+
+        private void FixedUpdate()
+        {
+            if (Time.time - _spawnTime > data.ObjectLifeTime)
+                Destroy(gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D other) => OnHitObject(other.gameObject);
@@ -38,12 +47,10 @@ namespace KarioMart.Powerups.Spawnable.Components
             if (car.Equals(_spawner))
                 return;
 
-            StartCoroutine(data.OnHit(car));
-            
-            if (destroyOnHit)
-                Destroy(gameObject);
+            DisableSelf();
+            StartCoroutine(data.OnHit(car, this));
         }
-        
+
         public static SpawnedPowerup Instantiate(SpawnedPowerup original, Car spawner, Vector2 spawnPos)
         {
             var spawnedPowerup = Instantiate(original);
@@ -51,6 +58,14 @@ namespace KarioMart.Powerups.Spawnable.Components
             spawnedPowerup.transform.position = spawnPos; 
 
             return spawnedPowerup;
+        }
+        
+        private void DisableSelf()
+        {
+            _collider.enabled = false;
+            _spriteRenderer.enabled = false;
+            _rb.isKinematic = true;
+            enabled = false;
         }
     }    
 }

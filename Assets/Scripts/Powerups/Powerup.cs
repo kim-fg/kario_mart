@@ -16,6 +16,6 @@ namespace KarioMart.Powerups
         
         protected WaitForSeconds EffectTimeWait => new(effectTime);
 
-        protected void EndEffect(Car target) => OnEffectEnd?.Invoke(target);
+        protected void EndActivation(Car target) => OnEffectEnd?.Invoke(target);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using KarioMart.CarSystem;
+using KarioMart.Powerups.Spawnable.Components;
 using UnityEngine;
 
 namespace KarioMart.Powerups.Spawnable
@@ -7,9 +8,7 @@ namespace KarioMart.Powerups.Spawnable
     [CreateAssetMenu(menuName = "Powerup/Spawnable/Sawblade")]
     public class SawbladePowerup : SpawnablePowerup
     {
-        
-        
-        public override IEnumerator OnHit(Car target)
+        public override IEnumerator OnHit(Car target, SpawnedPowerup instance)
         {
             var rb = target.GetComponent<Rigidbody2D>();
             var prevDrag = (rb.drag, rb.angularDrag);
@@ -20,6 +19,8 @@ namespace KarioMart.Powerups.Spawnable
 
             rb.drag = prevDrag.drag;
             rb.angularDrag = prevDrag.angularDrag;
+
+            EndHitEffect(instance);
         }
     }
 }
