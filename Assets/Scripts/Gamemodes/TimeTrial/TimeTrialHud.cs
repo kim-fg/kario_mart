@@ -25,7 +25,10 @@ namespace KarioMart.Gamemodes.TimeTrial
         {
             _timeTrial = transform.root.GetComponent<TimeTrial>();
             _timeTrial.OnLapEnded += LapEnded;
-            _timeTrial.OnSplit += delegate(float splitTime) { StartCoroutine(ShowSplitTime(splitTime)); };
+            _timeTrial.OnSplit += delegate(Lap currentLap)
+            {
+                StartCoroutine(ShowSplitTime(currentLap));
+            };
             _timeTrial.OnNewRecord += UpdateRecordLabel;
         }
         
@@ -35,19 +38,19 @@ namespace KarioMart.Gamemodes.TimeTrial
             UpdateRecordLabel(_timeTrial.RecordLap);
             ToggleShowSplit();
 
-            previousLapTimeLabel.text = $"Prev Lap: {EmptyLapTimeDisplayString}";
+            previousLapTimeLabel.text = $"Prev Lap: {Lap.EmptyLapTimeDisplayString()}";
             newRecordIndicator.SetActive(false);
         }
 
         private void FixedUpdate()
         {
-            activeLapTimeLabel.text = LapTimeDisplayString(_timeTrial.CurrentLap.GetLapTime());
+            activeLapTimeLabel.text = _timeTrial.CurrentLap.LapTimeDisplayString();
         }
         
         private void UpdateRecordLabel(Lap lap)
         {
             var recordTimeString = _timeTrial.RecordIsSet ? 
-                LapTimeDisplayString(_timeTrial.RecordLap.GetLapTime()) : EmptyLapTimeDisplayString;
+                _timeTrial.RecordLap.LapTimeDisplayString() : Lap.EmptyLapTimeDisplayString();
             
             recordLapTimeLabel.text = $"Record: {recordTimeString}";
 
@@ -56,9 +59,9 @@ namespace KarioMart.Gamemodes.TimeTrial
         }
 
         
-        private IEnumerator ShowSplitTime(float splitTime)
+        private IEnumerator ShowSplitTime(Lap lap)
         {
-            splitTimeLabel.text = $"Split: {LapTimeDisplayString(splitTime)}";
+            splitTimeLabel.text = $"Split: {lap.LapTimeDisplayString()}";
             ToggleShowSplit();
             yield return new WaitForSeconds(showSplitDuration);
             ToggleShowSplit();
@@ -72,23 +75,12 @@ namespace KarioMart.Gamemodes.TimeTrial
         private void LapEnded(Lap lap)
         {
             UpdateLapLabel();
-            previousLapTimeLabel.text = $"Prev Lap: {LapTimeDisplayString(lap.GetLapTime())}";
+            previousLapTimeLabel.text = $"Prev Lap: {lap.LapTimeDisplayString()}";
         }
         
         private void UpdateLapLabel()
         {
             lapLabel.text = $"Lap: {_timeTrial.LapCount}";
-        }
-        
-        private string EmptyLapTimeDisplayString => "-:--:-"; 
-        
-        private string LapTimeDisplayString(float lapTime)
-        {
-            int minutes = (int) (lapTime / 60); // convert to minutes (probably never gonna happen)
-            int seconds = (int) (lapTime % 60); // only count to 59, then start at 0
-            int tenths = (int) (lapTime % 1 * 10); // convert decimal part to hundreds
-            
-            return $"{minutes}:{seconds:00}:{tenths}";
         } 
     }
 }

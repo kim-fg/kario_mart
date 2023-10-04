@@ -5,7 +5,7 @@ namespace KarioMart.Gamemodes.Data
         public int CheckpointCounter;
         public int LapCounter;
 
-        public int PositionScore(int lapValue) => LapCounter * lapValue + CheckpointCounter;
+        public int PositionScore(int checkpointCount) => LapCounter * checkpointCount + CheckpointCounter;
 
         public void EndLap()
         {

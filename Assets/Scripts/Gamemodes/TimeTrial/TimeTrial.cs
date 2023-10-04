@@ -7,7 +7,7 @@ namespace KarioMart.Gamemodes.TimeTrial
 {
     public class TimeTrial : Gamemode
     {
-        public event Action<float> OnSplit;
+        public event Action<Lap> OnSplit;
         public event Action<Lap> OnLapEnded;
         public event Action<Lap> OnNewRecord;
 
@@ -20,7 +20,7 @@ namespace KarioMart.Gamemodes.TimeTrial
 
         protected override void Init()
         {
-            SpawnPlayerCar(_mapManager.StartGridPositions[0], "KeyboardLeft");
+            SpawnPlayerCar(MapManager.StartGridPositions[0], "KeyboardLeft");
             StartLap();
         }
 
@@ -33,7 +33,7 @@ namespace KarioMart.Gamemodes.TimeTrial
 
         protected override void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint)
         {
-            var currentCheckpoint = _mapManager.Checkpoints[_currentCheckpointIndex];
+            var currentCheckpoint = MapManager.Checkpoints[_currentCheckpointIndex];
             if (!currentCheckpoint.Equals(checkpoint))
                 return;
             
@@ -45,7 +45,7 @@ namespace KarioMart.Gamemodes.TimeTrial
                 return;
             }
             
-            OnSplit?.Invoke(CurrentLap.GetLapTime());
+            OnSplit?.Invoke(CurrentLap);
         }
 
         private void EndLap()

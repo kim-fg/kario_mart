@@ -12,12 +12,12 @@ namespace KarioMart.Gamemodes
         
         [SerializeField] private PlayerCarController playerPrefab;
         
-        protected MapManager _mapManager;
-        public int CheckpointCount => _mapManager.Checkpoints.Length;
+        protected MapManager MapManager;
+        public int CheckpointCount => MapManager.Checkpoints.Length;
 
         private void Start()
         {
-            _mapManager = FindObjectOfType<MapManager>();
+            MapManager = FindObjectOfType<MapManager>();
             Init();
         }
 

@@ -21,7 +21,7 @@ namespace KarioMart.Gamemodes.PVP
             _pvpGamemode = transform.root.GetComponent<PvpGamemode>();
             _pvpGamemode.OnGameOver += OnGameOver;
             
-            gameOverScreen.gameObject.SetActive(false);
+            gameOverScreen.Hide();
         }
 
         private void OnDisable()
@@ -37,7 +37,10 @@ namespace KarioMart.Gamemodes.PVP
         private void OnGameOver()
         {
             hud.SetActive(false);
-            gameOverScreen.gameObject.SetActive(true);
+            var raceWinner = _pvpGamemode.GetLeadingCar();
+            gameOverScreen.SetWinner(raceWinner);
+            gameOverScreen.Show();
+            
             Time.timeScale = 0;
 
             //block pause menu

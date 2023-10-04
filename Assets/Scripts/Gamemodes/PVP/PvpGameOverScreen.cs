@@ -1,19 +1,17 @@
+using KarioMart.CarSystem;
+using KarioMart.UI;
+using TMPro;
 using UnityEngine;
 
 namespace KarioMart.Gamemodes.PVP
 {
-    public class PvpGameOverScreen : MonoBehaviour
+    public class PvpGameOverScreen : ToggledUI
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private TextMeshProUGUI winnerLabel;
         
-        }
-
-        // Update is called once per frame
-        void Update()
+        public void SetWinner(Car winner)
         {
-        
+            winnerLabel.text = $"Player {winner.RaceID + 1} wins!";
         }
     }
 }
