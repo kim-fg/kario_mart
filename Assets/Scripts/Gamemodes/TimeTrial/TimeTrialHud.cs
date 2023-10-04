@@ -35,7 +35,7 @@ namespace KarioMart.Gamemodes.TimeTrial
         private void Start()
         {
             UpdateLapLabel();
-            UpdateRecordLabel(_timeTrial.RecordLap);
+            UpdateRecordLabel(_timeTrial.BestLap);
             ToggleShowSplit();
 
             previousLapTimeLabel.text = $"Prev Lap: {Lap.EmptyLapTimeDisplayString()}";
@@ -50,7 +50,7 @@ namespace KarioMart.Gamemodes.TimeTrial
         private void UpdateRecordLabel(Lap lap)
         {
             var recordTimeString = _timeTrial.RecordIsSet ? 
-                _timeTrial.RecordLap.LapTimeDisplayString() : Lap.EmptyLapTimeDisplayString();
+                _timeTrial.BestLap.LapTimeDisplayString() : Lap.EmptyLapTimeDisplayString();
             
             recordLapTimeLabel.text = $"Record: {recordTimeString}";
 

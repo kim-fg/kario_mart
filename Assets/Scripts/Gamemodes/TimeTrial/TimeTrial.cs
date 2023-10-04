@@ -15,8 +15,15 @@ namespace KarioMart.Gamemodes.TimeTrial
 
         public int LapCount { get; private set; } = 1;
         public Lap CurrentLap { get; private set; }
-        public Lap RecordLap { get; private set; } = Lap.Max;
+        public Lap BestLap { get; private set; } = Lap.Max;
         public bool RecordIsSet { get; private set; }
+
+        public Lap TrackRecord()
+        {
+            // this is wrong for now
+            // should send the fastest lap on the current track
+            return Lap.Max;
+        } 
 
         protected override void Init()
         {
@@ -51,13 +58,13 @@ namespace KarioMart.Gamemodes.TimeTrial
         private void EndLap()
         {
             CurrentLap.Stop();
-            var newBestTime = CurrentLap.IsRecord(RecordLap);
+            var newBestTime = CurrentLap.IsRecord(BestLap);
 
             if (newBestTime)
             {
-                RecordLap = CurrentLap;
+                BestLap = CurrentLap;
                 RecordIsSet = true;
-                OnNewRecord?.Invoke(RecordLap);
+                OnNewRecord?.Invoke(BestLap);
             }
             
             // save in highscore list

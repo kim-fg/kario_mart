@@ -1,16 +1,18 @@
 using System;
+using KarioMart.UI;
 using KarioMart.Util;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace KarioMart.Gamemodes.PVP
 {
-    public class PvpUIController : MonoBehaviour
+    public abstract class GamemodeUIController<T, U> : MonoBehaviour where T : Gamemode where U : ToggledUI 
     {
         [SerializeField] private GameObject hud;
-        [SerializeField] private PvpGameOverScreen gameOverScreen;
-        
-        private PvpGamemode _pvpGamemode;
+        [SerializeField] protected U gameOverScreen;
 
+        protected T _gamemode;
+        
         private void OnEnable()
         {
             PauseMenu.OnPauseToggled += OnPauseToggled;
@@ -18,8 +20,8 @@ namespace KarioMart.Gamemodes.PVP
 
         private void Awake()
         {
-            _pvpGamemode = transform.root.GetComponent<PvpGamemode>();
-            _pvpGamemode.OnGameOver += OnGameOver;
+            _gamemode = transform.root.GetComponent<T>();
+            _gamemode.OnGameOver += OnGameOver;
             
             gameOverScreen.Hide();
         }
@@ -28,17 +30,16 @@ namespace KarioMart.Gamemodes.PVP
         {
             PauseMenu.OnPauseToggled -= OnPauseToggled;
         }
-
+        
         private void OnPauseToggled(bool paused)
         {
             hud.SetActive(!paused);
         }
-
+        
         private void OnGameOver()
         {
             hud.SetActive(false);
-            var raceWinner = _pvpGamemode.GetLeadingCar();
-            gameOverScreen.SetWinner(raceWinner);
+            EndSession();
             gameOverScreen.Show();
             
             Time.timeScale = 0;
@@ -47,7 +48,7 @@ namespace KarioMart.Gamemodes.PVP
             if (!PauseMenu.IsBlocked)
                 PauseMenu.ToggleBlocked(gameObject);
         }
-
+        
         public void OnReturnToMenu()
         {
             Time.timeScale = 1;
@@ -56,6 +57,19 @@ namespace KarioMart.Gamemodes.PVP
             // unblock pause menu
             if (PauseMenu.IsBlocked)
                 PauseMenu.ToggleBlocked(gameObject);
+        }
+
+        protected abstract void EndSession();
+    }
+    
+    public class PvpUIController : GamemodeUIController<PvpGamemode, PvpGameOverScreen>
+    {
+        private PvpGamemode _pvpGamemode;
+
+        protected override void EndSession()
+        {
+            var raceWinner = _pvpGamemode.GetLeadingCar();
+            gameOverScreen.SetWinner(raceWinner);
         }
     }
 }
