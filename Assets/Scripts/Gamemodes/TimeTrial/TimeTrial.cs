@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using KarioMart.CarSystem;
 using KarioMart.Gamemodes.Data;
+using KarioMart.Gamemodes.TimeTrial.Records;
 using UnityEngine;
 
 namespace KarioMart.Gamemodes.TimeTrial
@@ -9,21 +11,15 @@ namespace KarioMart.Gamemodes.TimeTrial
     {
         public event Action<Lap> OnSplit;
         public event Action<Lap> OnLapEnded;
-        public event Action<Lap> OnNewRecord;
+        public event Action<Lap> OnNewBestLap;
 
         private int _currentCheckpointIndex;
 
         public int LapCount { get; private set; } = 1;
         public Lap CurrentLap { get; private set; }
-        public Lap BestLap { get; private set; } = Lap.Max;
         public bool RecordIsSet { get; private set; }
-
-        public Lap TrackRecord()
-        {
-            // this is wrong for now
-            // should send the fastest lap on the current track
-            return Lap.Max;
-        } 
+        public Lap BestLap { get; private set; }
+        public TrackLeaderboard Leaderboard => MapManager.TrackLeaderboard;
 
         protected override void Init()
         {
@@ -58,13 +54,13 @@ namespace KarioMart.Gamemodes.TimeTrial
         private void EndLap()
         {
             CurrentLap.Stop();
-            var newBestTime = CurrentLap.IsRecord(BestLap);
+            var newBestTime = BestLap == null || CurrentLap.IsRecord(BestLap);
 
             if (newBestTime)
             {
                 BestLap = CurrentLap;
                 RecordIsSet = true;
-                OnNewRecord?.Invoke(BestLap);
+                OnNewBestLap?.Invoke(BestLap);
             }
             
             // save in highscore list

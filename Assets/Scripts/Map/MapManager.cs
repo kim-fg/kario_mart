@@ -1,6 +1,5 @@
-using System;
 using System.IO;
-using KarioMart.Gamemodes.TimeTrial;
+using KarioMart.Gamemodes.TimeTrial.Records;
 using KarioMart.Util;
 using UnityEngine;
 
@@ -17,16 +16,11 @@ namespace KarioMart.Map
 
         private TrackLeaderboard _trackLeaderboard;
 
-        private void Start()
-        {
-            LoadTrackLeaderboard();
-        }
-
         public TrackLeaderboard TrackLeaderboard
         {
             get
             {
-                if(_trackLeaderboard == null)
+                if(_trackLeaderboard.IsDefault())
                     LoadTrackLeaderboard();
                 return _trackLeaderboard;
             }
@@ -42,11 +36,49 @@ namespace KarioMart.Map
 
         private void LoadTrackLeaderboard()
         {
-            print(TrackLeaderboardPath);
+            try
+            { 
+                var reader = new StreamReader(TrackLeaderboardPath);
+                var data = reader.ReadToEnd();
+                _trackLeaderboard = JsonUtility.FromJson<TrackLeaderboard>(data);
+                print(data);
+                
+                reader.Close();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                CreateLeaderboardDirectory();
+                SaveTrackLeaderboard();
+            }
+            catch (FileNotFoundException)
+            {
+                SaveTrackLeaderboard();
+            }
         }
+
         private void SaveTrackLeaderboard()
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var writer = new StreamWriter(TrackLeaderboardPath);
+                var trackLeaderboardJson = JsonUtility.ToJson(_trackLeaderboard, true);
+                writer.Write(trackLeaderboardJson);
+                writer.Close();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                CreateLeaderboardDirectory();
+                SaveTrackLeaderboard();
+            }
+            catch (FileNotFoundException)
+            {
+                SaveTrackLeaderboard();
+            }
+        }
+        
+        private void CreateLeaderboardDirectory()
+        {
+            Directory.CreateDirectory(PathBuilder.Build(true, "leaderboards"));
         }
     }
 }

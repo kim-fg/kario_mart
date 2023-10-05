@@ -2,6 +2,7 @@ using System.Collections;
 using KarioMart.Gamemodes.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KarioMart.Gamemodes.TimeTrial
 {
@@ -15,9 +16,11 @@ namespace KarioMart.Gamemodes.TimeTrial
         [SerializeField] private TextMeshProUGUI splitTimeLabel;
         [SerializeField] private TextMeshProUGUI previousLapTimeLabel;
 
-        [Header("Record")] 
-        [SerializeField] private TextMeshProUGUI recordLapTimeLabel;
-        [SerializeField] private GameObject newRecordIndicator;
+        [Header("Best Lap UI")] 
+        [FormerlySerializedAs("recordLapTimeLabel")]
+        [SerializeField] private TextMeshProUGUI bestLapTimeLabel;
+        [FormerlySerializedAs("newRecordIndicator")] 
+        [SerializeField] private GameObject newBestLapIndicator;
         
         private TimeTrial _timeTrial;
         
@@ -29,17 +32,17 @@ namespace KarioMart.Gamemodes.TimeTrial
             {
                 StartCoroutine(ShowSplitTime(currentLap));
             };
-            _timeTrial.OnNewRecord += UpdateRecordLabel;
+            _timeTrial.OnNewBestLap += UpdateBestLapLabel;
         }
         
         private void Start()
         {
             UpdateLapLabel();
-            UpdateRecordLabel(_timeTrial.BestLap);
+            UpdateBestLapLabel(_timeTrial.BestLap);
             ToggleShowSplit();
 
             previousLapTimeLabel.text = $"Prev Lap: {Lap.EmptyLapTimeDisplayString()}";
-            newRecordIndicator.SetActive(false);
+            newBestLapIndicator.SetActive(false);
         }
 
         private void FixedUpdate()
@@ -47,15 +50,15 @@ namespace KarioMart.Gamemodes.TimeTrial
             activeLapTimeLabel.text = _timeTrial.CurrentLap.LapTimeDisplayString();
         }
         
-        private void UpdateRecordLabel(Lap lap)
+        private void UpdateBestLapLabel(Lap lap)
         {
             var recordTimeString = _timeTrial.RecordIsSet ? 
                 _timeTrial.BestLap.LapTimeDisplayString() : Lap.EmptyLapTimeDisplayString();
             
-            recordLapTimeLabel.text = $"Record: {recordTimeString}";
+            bestLapTimeLabel.text = $"Record: {recordTimeString}";
 
             // this should probably be moved to TimeTrial
-            newRecordIndicator.SetActive(true);
+            newBestLapIndicator.SetActive(true);
         }
 
         

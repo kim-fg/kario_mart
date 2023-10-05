@@ -9,7 +9,7 @@ namespace KarioMart.Util
         {
             var stringBuilder = new StringBuilder();
             if (fromPersistentDataPath)
-                stringBuilder.Append(Application.persistentDataPath);
+                stringBuilder.Append(Application.persistentDataPath + "/");
             
             for (int i = 0; i < pathSegments.Length; i++)
             {

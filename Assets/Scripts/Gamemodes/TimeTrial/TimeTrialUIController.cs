@@ -6,9 +6,7 @@ namespace KarioMart.Gamemodes.TimeTrial
     {
         protected override void EndSession()
         {
-            var bestLap = _gamemode.BestLap;
-            var isRecordLap = bestLap.IsRecord(_gamemode.TrackRecord());
-            gameOverScreen.SetBestTime(_gamemode.BestLap, isRecordLap);
+            gameOverScreen.DisplayLeaderboard(_gamemode.BestLap, _gamemode.Leaderboard);
         }
     }
 }

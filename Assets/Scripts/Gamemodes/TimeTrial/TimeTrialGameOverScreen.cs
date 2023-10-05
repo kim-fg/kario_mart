@@ -1,5 +1,6 @@
 using System;
 using KarioMart.Gamemodes.Data;
+using KarioMart.Gamemodes.TimeTrial.Records;
 using KarioMart.UI;
 using TMPro;
 using UnityEngine;
@@ -21,11 +22,13 @@ namespace KarioMart.Gamemodes.TimeTrial
             saveLapRecordButton.interactable = nicknameInputField.text.Length > 0;
         }
         
-        public void SetBestTime(Lap lap, bool isTrackRecord)
+        public void DisplayLeaderboard(Lap bestLap, TrackLeaderboard trackLeaderboard)
         {
-            _bestLap = lap;
+            _bestLap = bestLap;
+            double trackRecordTime = trackLeaderboard.GetBestRecord().LapTime;
+            bool isTrackRecord = trackRecordTime > _bestLap.GetLapTime();
             
-            bestTimeLabel.text = $"Best Lap: {lap.LapTimeDisplayString()}";
+            bestTimeLabel.text = $"Best Lap: {bestLap.LapTimeDisplayString()}";
             newRecordIndicator.SetActive(isTrackRecord);
         }
 
@@ -34,6 +37,8 @@ namespace KarioMart.Gamemodes.TimeTrial
             nicknameInputField.interactable = false;
             saveLapRecordButton.interactable = false;
             // save _bestlap as json
+            
+            
         }
     }
 }
