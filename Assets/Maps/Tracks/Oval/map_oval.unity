@@ -2362,6 +2362,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: mapData
+      value: 
+      objectReference: {fileID: 11400000, guid: ac2228a8d7ffd4d4891bd277577ec1b5, type: 2}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
       propertyPath: checkpoints.Array.size
       value: 2
       objectReference: {fileID: 0}
