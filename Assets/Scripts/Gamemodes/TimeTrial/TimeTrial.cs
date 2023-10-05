@@ -19,7 +19,11 @@ namespace KarioMart.Gamemodes.TimeTrial
         public Lap CurrentLap { get; private set; }
         public bool RecordIsSet { get; private set; }
         public Lap BestLap { get; private set; }
-        public TrackLeaderboard Leaderboard => MapManager.TrackLeaderboard;
+        public TrackLeaderboard Leaderboard
+        {
+            get => MapManager.TrackLeaderboard;
+            private set => MapManager.TrackLeaderboard = value;
+        }
 
         protected override void Init()
         {
@@ -71,6 +75,13 @@ namespace KarioMart.Gamemodes.TimeTrial
             OnLapEnded?.Invoke(CurrentLap);
             
             StartLap();
+        }
+
+        public void SaveRecord(LapRecord lapRecord)
+        {
+            var oldLeaderBoard = Leaderboard;
+            oldLeaderBoard.AddRecord(lapRecord);
+            Leaderboard = oldLeaderBoard;
         }
     }
 }

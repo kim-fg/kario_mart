@@ -14,22 +14,44 @@ namespace KarioMart.Gamemodes.TimeTrial
         [SerializeField] private GameObject newRecordIndicator;
         [SerializeField] private TMP_InputField nicknameInputField;
         [SerializeField] private Button saveLapRecordButton;
+
+        private TimeTrial _timeTrial;
         
-        private Lap _bestLap;
+        private void Awake()
+        {
+            _timeTrial = transform.root.GetComponent<TimeTrial>();
+        }
 
         public void OnNicknameEdited()
         {
             saveLapRecordButton.interactable = nicknameInputField.text.Length > 0;
         }
         
-        public void DisplayLeaderboard(Lap bestLap, TrackLeaderboard trackLeaderboard)
+        public void DisplayLeaderboard()
         {
-            _bestLap = bestLap;
-            double trackRecordTime = trackLeaderboard.GetBestRecord().LapTime;
-            bool isTrackRecord = trackRecordTime > _bestLap.GetLapTime();
-            
-            bestTimeLabel.text = $"Best Lap: {bestLap.LapTimeDisplayString()}";
-            newRecordIndicator.SetActive(isTrackRecord);
+            var bestLap = _timeTrial.BestLap;
+            var leaderboard = _timeTrial.Leaderboard;
+            var trackRecordLap = leaderboard.GetBestRecord();
+            if (bestLap == null)
+            {
+                bestTimeLabel.text = $"Zero laps completed..";
+                nicknameInputField.interactable = false;
+                saveLapRecordButton.interactable = false;
+                newRecordIndicator.SetActive(false);
+            }
+            else
+            {
+                bestTimeLabel.text = $"Best Lap: {bestLap.LapTimeDisplayString()}";
+                var isTrackRecord = trackRecordLap.IsDefault() || trackRecordLap.LapTime > bestLap.GetLapTime();
+                newRecordIndicator.SetActive(isTrackRecord);
+            }
+
+            // var lapRecords = leaderboard.LapRecords;
+            // for (int i = 0; i < lapRecords.Length; i++)
+            // {
+            //     var lapRecord = lapRecords[i];
+            //     // spawn laprecord item
+            // }
         }
 
         public void OnSaveRecord()
@@ -37,8 +59,8 @@ namespace KarioMart.Gamemodes.TimeTrial
             nicknameInputField.interactable = false;
             saveLapRecordButton.interactable = false;
             // save _bestlap as json
-            
-            
+            var lapRecord = new LapRecord(_timeTrial.BestLap.GetLapTime(), nicknameInputField.text);
+            _timeTrial.SaveRecord(lapRecord);
         }
     }
 }

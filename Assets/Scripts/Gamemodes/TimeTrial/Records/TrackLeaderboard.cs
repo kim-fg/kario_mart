@@ -6,6 +6,7 @@ namespace KarioMart.Gamemodes.TimeTrial.Records
     [System.Serializable]
     public struct TrackLeaderboard : IDefaultComparable
     {
+        // I should probably use List for this, but I'm lazy.
         public LapRecord[] LapRecords;
         
         public TrackLeaderboard(LapRecord[] lapRecords)
@@ -24,6 +25,11 @@ namespace KarioMart.Gamemodes.TimeTrial.Records
                 return default;
             
             return LapRecords.Length > 0 ? LapRecords[0] : default;
+        }
+
+        public void AddRecord(LapRecord lapRecord)
+        {
+            LapRecords = LapRecords.Concat(new [] { lapRecord }).ToArray();
         }
     }
 }

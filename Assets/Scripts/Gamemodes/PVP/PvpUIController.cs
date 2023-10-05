@@ -8,11 +8,9 @@ namespace KarioMart.Gamemodes.PVP
 {
     public class PvpUIController : GamemodeUIController<PvpGamemode, PvpGameOverScreen>
     {
-        private PvpGamemode _pvpGamemode;
-
         protected override void EndSession()
         {
-            var raceWinner = _pvpGamemode.GetLeadingCar();
+            var raceWinner = _gamemode.GetLeadingCar();
             gameOverScreen.SetWinner(raceWinner);
         }
     }

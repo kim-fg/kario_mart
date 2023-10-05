@@ -6,7 +6,7 @@ namespace KarioMart.Gamemodes.TimeTrial
     {
         protected override void EndSession()
         {
-            gameOverScreen.DisplayLeaderboard(_gamemode.BestLap, _gamemode.Leaderboard);
+            gameOverScreen.DisplayLeaderboard();
         }
     }
 }

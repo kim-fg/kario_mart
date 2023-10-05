@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2656219287513602142, guid: 1f6cc70046ef07e4a93c4c75893d7b7a, type: 3}
+      propertyPath: m_Name
+      value: Best Lap Time Label
+      objectReference: {fileID: 0}
     - target: {fileID: 3200136739709963988, guid: 1f6cc70046ef07e4a93c4c75893d7b7a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
