@@ -15,6 +15,10 @@ namespace KarioMart.Gamemodes.TimeTrial
         [SerializeField] private TMP_InputField nicknameInputField;
         [SerializeField] private Button saveLapRecordButton;
 
+        [Header("Leaderboard")] 
+        [SerializeField] private Transform leaderboardList;
+        [SerializeField] private LeaderboardItem leaderboardItemPrefab;
+
         private TimeTrial _timeTrial;
         
         private void Awake()
@@ -45,13 +49,16 @@ namespace KarioMart.Gamemodes.TimeTrial
                 var isTrackRecord = trackRecordLap.IsDefault() || trackRecordLap.LapTime > bestLap.GetLapTime();
                 newRecordIndicator.SetActive(isTrackRecord);
             }
-
-            // var lapRecords = leaderboard.LapRecords;
-            // for (int i = 0; i < lapRecords.Length; i++)
-            // {
-            //     var lapRecord = lapRecords[i];
-            //     // spawn laprecord item
-            // }
+            
+            var lapRecords = leaderboard.LapRecords;
+            if (lapRecords == null)
+                return;
+            
+            for (int i = 0; i < lapRecords.Length; i++)
+            {
+                 var leaderBoardItem = Instantiate(leaderboardItemPrefab, leaderboardList);
+                 leaderBoardItem.SetLapRecord(lapRecords[i], i);
+            }
         }
 
         public void OnSaveRecord()

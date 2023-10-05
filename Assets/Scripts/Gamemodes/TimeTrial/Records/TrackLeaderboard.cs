@@ -11,7 +11,7 @@ namespace KarioMart.Gamemodes.TimeTrial.Records
         
         public TrackLeaderboard(LapRecord[] lapRecords)
         {
-            LapRecords = lapRecords.OrderByDescending(l => l.LapTime).ToArray();
+            LapRecords = lapRecords.OrderBy(l => l.LapTime).ToArray();
         }
 
         public bool IsDefault()

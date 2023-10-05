@@ -41,8 +41,6 @@ namespace KarioMart.Map
                 var reader = new StreamReader(TrackLeaderboardPath);
                 var data = reader.ReadToEnd();
                 _trackLeaderboard = JsonUtility.FromJson<TrackLeaderboard>(data);
-                print(data);
-                
                 reader.Close();
             }
             catch (DirectoryNotFoundException)

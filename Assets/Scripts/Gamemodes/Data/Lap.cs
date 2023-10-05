@@ -32,8 +32,11 @@ namespace KarioMart.Gamemodes.Data
         
         public string LapTimeDisplayString()
         {
-            var lapTime = GetLapTime();
-            
+            return LapTimeDisplayString(GetLapTime());
+        }
+
+        public static string LapTimeDisplayString(float lapTime)
+        {
             int minutes = (int) (lapTime / 60); // convert to minutes (probably never gonna happen)
             int seconds = (int) (lapTime % 60); // only count to 59, then start at 0
             int tenths = (int) (lapTime % 1 * 10); // convert decimal part to hundreds
