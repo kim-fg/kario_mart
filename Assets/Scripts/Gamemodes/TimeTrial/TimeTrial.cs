@@ -29,10 +29,9 @@ namespace KarioMart.Gamemodes.TimeTrial
         {
             MapManager.TogglePowerupBoxes(false);
             SpawnPlayerCar(MapManager.StartGridPositions[0], "KeyboardLeft");
-            StartLap();
         }
 
-        private void StartLap()
+        protected override void StartLap()
         {
             _currentCheckpointIndex = 0;
             CurrentLap = new Lap();

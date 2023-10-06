@@ -47,7 +47,7 @@ namespace KarioMart.Gamemodes.TimeTrial
 
         private void FixedUpdate()
         {
-            activeLapTimeLabel.text = _timeTrial.CurrentLap.LapTimeDisplayString();
+            activeLapTimeLabel.text = _timeTrial.CurrentLap?.LapTimeDisplayString();
         }
         
         private void UpdateBestLapLabel(Lap lap)

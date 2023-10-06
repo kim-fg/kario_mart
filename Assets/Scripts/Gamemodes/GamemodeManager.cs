@@ -10,5 +10,10 @@ namespace KarioMart.Gamemodes
         {
             ActiveGamemode = Instantiate(gamemodePrefab);
         }
+
+        public void BeginRace()
+        {
+            ActiveGamemode.BeginRace();
+        }
     }
 }

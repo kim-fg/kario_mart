@@ -42,6 +42,8 @@ namespace KarioMart.Gamemodes.PVP
             _carRacePositions.Add(p2Car, new RacePosition());
         }
 
+        protected override void StartLap() { }
+
         protected override void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint)
         {
             var racePosition = _carRacePositions[car];
