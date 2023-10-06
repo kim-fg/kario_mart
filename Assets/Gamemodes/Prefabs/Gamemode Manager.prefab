@@ -747,8 +747,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Space to start race
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e47b7fdfde110af4eaf737cf2524ca97, type: 2}
-  m_sharedMaterial: {fileID: 8831037605749737841, guid: e47b7fdfde110af4eaf737cf2524ca97, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aff3259b51d28914996a550b28944153, type: 2}
+  m_sharedMaterial: {fileID: 8831037605749737841, guid: aff3259b51d28914996a550b28944153, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
