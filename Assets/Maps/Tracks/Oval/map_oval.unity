@@ -281,6 +281,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7944582609692125623, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
   m_PrefabInstance: {fileID: 598661434}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &598661436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8708787582030614874, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
+  m_PrefabInstance: {fileID: 598661434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291d3d87c5374941a2e5ff07c100a182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &847167688
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +895,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7944582609692125623, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
   m_PrefabInstance: {fileID: 1312757076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1312757078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8708787582030614874, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
+  m_PrefabInstance: {fileID: 1312757076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291d3d87c5374941a2e5ff07c100a182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1625412859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,6 +967,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: powerupBoxes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
       objectReference: {fileID: 218309159242189808}
@@ -952,6 +978,14 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[1]
       value: 
       objectReference: {fileID: 89996439}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: powerupBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 598661436}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: powerupBoxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1312757078}
     - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
       propertyPath: startGridPositions.Array.size
       value: 6

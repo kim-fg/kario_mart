@@ -706,6 +706,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7944582609692125623, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
   m_PrefabInstance: {fileID: 1025842099}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1025842101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8708787582030614874, guid: e471161c7c23d0941be06b5bf4f94e1d, type: 3}
+  m_PrefabInstance: {fileID: 1025842099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291d3d87c5374941a2e5ff07c100a182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1107932930 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2493498351434396837, guid: 4dedbd6f58a353e479acc38cb0e602ca, type: 3}
@@ -1157,6 +1168,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: powerupBoxes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
       objectReference: {fileID: 574794338}
@@ -1176,6 +1191,10 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[4]
       value: 
       objectReference: {fileID: 1936922280}
+    - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
+      propertyPath: powerupBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1025842101}
     - target: {fileID: 6846488821914701909, guid: 581567185c5c8a04e94850b586c66e08, type: 3}
       propertyPath: startGridPositions.Array.size
       value: 6

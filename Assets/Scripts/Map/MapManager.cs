@@ -1,7 +1,9 @@
 using System.IO;
 using KarioMart.Gamemodes.TimeTrial.Records;
+using KarioMart.Powerups;
 using KarioMart.Util;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KarioMart.Map
 {
@@ -10,6 +12,7 @@ namespace KarioMart.Map
         [SerializeField] private MapData mapData;
         [SerializeField] private Collider2D[] checkpoints;
         [SerializeField] private Transform[] startGridPositions;
+        [SerializeField] private PowerupBox[] powerupBoxes;
 
         public Collider2D[] Checkpoints => checkpoints;
         public Transform[] StartGridPositions => startGridPositions;
@@ -77,6 +80,14 @@ namespace KarioMart.Map
         private void CreateLeaderboardDirectory()
         {
             Directory.CreateDirectory(PathBuilder.Build(true, "leaderboards"));
+        }
+
+        public void TogglePowerupBoxes(bool value)
+        {
+            for (int i = 0; i < powerupBoxes.Length; i++)
+            {
+                powerupBoxes[i].gameObject.SetActive(value);
+            }
         }
     }
 }

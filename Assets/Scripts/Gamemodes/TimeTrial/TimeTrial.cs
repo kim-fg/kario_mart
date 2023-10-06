@@ -27,6 +27,7 @@ namespace KarioMart.Gamemodes.TimeTrial
 
         protected override void Init()
         {
+            MapManager.TogglePowerupBoxes(false);
             SpawnPlayerCar(MapManager.StartGridPositions[0], "KeyboardLeft");
             StartLap();
         }
