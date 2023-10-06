@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using KarioMart.Gamemodes.Data;
 using KarioMart.Gamemodes.TimeTrial.Records;
 using TMPro;
 using UnityEngine;
 
-namespace KarioMart
+namespace KarioMart.Gamemodes.TimeTrial
 {
     public class LeaderboardItem : MonoBehaviour
     {
