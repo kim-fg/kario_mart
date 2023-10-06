@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Wiggle
   description: This is a tough map. Be careful around the tight corners.
-  displayImage: {fileID: 21300000, guid: 4bc373ca44c10c74d8796d4de326903d, type: 3}
+  displayImage: {fileID: 21300000, guid: d7319865aefe5434e8e20784e093447d, type: 3}
   scene:
     m_AssetGUID: 66e41a4aca3458047980cb9c71b0cd91
     m_SubObjectName: 
