@@ -45,9 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadMainMenuOnStart: 1
-  mainMenu:
-    m_AssetGUID: 2cda990e2423bbf4892e6590ba056729
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  mainMenuSceneName: menu_main
   gamemodeManagerPrefab: {fileID: 9061078427510196918, guid: 86051f1ada2e8a546a03177eddeabf9c, type: 3}

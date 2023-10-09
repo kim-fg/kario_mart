@@ -15,8 +15,4 @@ MonoBehaviour:
   displayName: Oval
   description: One single oval. Turn right with good lines.
   displayImage: {fileID: 21300000, guid: c5fc77aa61526684c9d2be07d584dc3f, type: 3}
-  scene:
-    m_AssetGUID: 8cd4397f8c8dc514ba6f63e1a6c16876
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  sceneName: map_oval

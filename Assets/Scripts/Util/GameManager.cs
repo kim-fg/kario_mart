@@ -1,13 +1,8 @@
-using System;
 using KarioMart.Gamemodes;
 using KarioMart.Gamemodes.Data;
 using KarioMart.Map;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
-using Object = UnityEngine.Object;
+using UnityEngine.SceneManagement;
 
 namespace KarioMart.Util
 {
@@ -15,7 +10,7 @@ namespace KarioMart.Util
     {
         public static GameManager Instance { get; private set; }
         [SerializeField] private bool loadMainMenuOnStart = true;
-        [SerializeField] private AssetReference mainMenu;
+        [SerializeField] private string mainMenuSceneName;
         [SerializeField] private GamemodeManager gamemodeManagerPrefab;
 
         private void Awake()
@@ -41,14 +36,14 @@ namespace KarioMart.Util
 
         public void StartSession(MapData mapData, GamemodeData gamemodeData)
         {
-            var asyncHandle = Addressables.LoadSceneAsync(mapData.Scene);
-            asyncHandle.Completed += delegate(AsyncOperationHandle<SceneInstance> handle)
+            var asyncHandle = SceneManager.LoadSceneAsync(mapData.SceneName);
+            asyncHandle.completed += delegate(AsyncOperation op)
             {
                 var gamemodeManager = Instantiate(gamemodeManagerPrefab);
                 gamemodeManager.Init(gamemodeData.Prefab);
             };
         }
 
-        public void LoadMainMenu() => mainMenu.LoadSceneAsync();
+        public void LoadMainMenu() => SceneManager.LoadSceneAsync(mainMenuSceneName);
     }
 }

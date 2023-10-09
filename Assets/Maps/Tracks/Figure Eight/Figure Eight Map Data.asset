@@ -15,8 +15,4 @@ MonoBehaviour:
   displayName: Figure Eight
   description: Beware of demolition derby. The crossing in the middle causes chaos.
   displayImage: {fileID: 21300000, guid: 56d2caa485310824c81273dce3e7cf76, type: 3}
-  scene:
-    m_AssetGUID: 3f26a3cbde57e06488b9f3885e544713
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  sceneName: map_figure_eight
