@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using KarioMart.Gamemodes;
 using TMPro;
 using UnityEngine;
 
-namespace KarioMart
+namespace KarioMart.Gamemodes
 {
     [RequireComponent(typeof(Canvas))]
     public class GamemodeStartCountdown : MonoBehaviour

@@ -7,6 +7,9 @@ namespace KarioMart.CarSystem
 {
     public class PowerupInventory : MonoBehaviour
     {
+        public event Action<Powerup> OnGotPowerup;
+        public event Action OnRemovedPowerup;
+        
         private Car _car;
         private Powerup _currentPowerup;
 
@@ -23,6 +26,7 @@ namespace KarioMart.CarSystem
                 return false;
             
             _currentPowerup = powerup;
+            OnGotPowerup?.Invoke(_currentPowerup);
             return true;
         }
 
@@ -45,6 +49,7 @@ namespace KarioMart.CarSystem
 
             _currentPowerup.OnEffectEnd -= OnEffectEnd;
             _currentPowerup = null;
+            OnRemovedPowerup?.Invoke();
         }
     }
 }

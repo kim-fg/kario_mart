@@ -8,9 +8,12 @@ namespace KarioMart.Powerups
     public abstract class Powerup : ScriptableObject
     {
         public event Action<Car> OnEffectEnd;
-        
+
+        [SerializeField] private Sprite displaySprite;
         [Header("Data")]
         [SerializeField] protected float effectTime = 3f;
+
+        public Sprite DisplaySprite => displaySprite;
         
         public abstract IEnumerator Activate(Car target);
         

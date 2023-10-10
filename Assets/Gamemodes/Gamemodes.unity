@@ -353,6 +353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Time Trial
       objectReference: {fileID: 0}
+    - target: {fileID: 113831975606128229, guid: 1f6cc70046ef07e4a93c4c75893d7b7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 595841157083896038, guid: 1f6cc70046ef07e4a93c4c75893d7b7a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -909,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3500848049586407412, guid: 86051f1ada2e8a546a03177eddeabf9c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675470935049277107, guid: 86051f1ada2e8a546a03177eddeabf9c, type: 3}
       propertyPath: m_AnchorMax.y
