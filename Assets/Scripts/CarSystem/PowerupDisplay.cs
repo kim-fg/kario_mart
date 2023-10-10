@@ -16,6 +16,8 @@ namespace KarioMart.CarSystem
             _powerupInventory = transform.root.GetComponent<PowerupInventory>();
             _powerupInventory.OnGotPowerup += DisplayPowerup;
             _powerupInventory.OnRemovedPowerup += HidePowerup;
+            
+            HidePowerup();
         }
 
         private void DisplayPowerup(Powerup powerup)

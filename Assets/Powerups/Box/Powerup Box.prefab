@@ -53,6 +53,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 11400000, guid: 6a02c750334371743a2a3ece2c586b7d, type: 2}
   - {fileID: 11400000, guid: a7280a9fa83b1824c803adcf08a87cb7, type: 2}
+  - {fileID: 11400000, guid: ba01c52d5ee2f35498a6cad17ffd8dc6, type: 2}
 --- !u!212 &4860168481751088371
 SpriteRenderer:
   m_ObjectHideFlags: 0

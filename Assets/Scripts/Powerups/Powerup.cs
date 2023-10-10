@@ -18,7 +18,10 @@ namespace KarioMart.Powerups
         public abstract IEnumerator Activate(Car target);
         
         protected WaitForSeconds EffectTimeWait => new(effectTime);
-
-        protected void EndActivation(Car target) => OnEffectEnd?.Invoke(target);
+        
+        protected void EndActivation(Car target)
+        {
+            OnEffectEnd?.Invoke(target);
+        }
     }
 }

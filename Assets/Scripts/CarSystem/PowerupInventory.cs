@@ -30,13 +30,19 @@ namespace KarioMart.CarSystem
             return true;
         }
 
+        private Coroutine _powerupRoutine;
+        private bool PowerupActive => _powerupRoutine != null;
+
         public void UsePowerup()
         {
             if (!HasPowerup)
                 return;
+            
+            if (PowerupActive)
+                return;
 
             _currentPowerup.OnEffectEnd += OnEffectEnd;
-            StartCoroutine(_currentPowerup.Activate(_car));
+            _powerupRoutine = StartCoroutine(_currentPowerup.Activate(_car));
         }
 
         private void OnEffectEnd(Car target)
@@ -49,6 +55,7 @@ namespace KarioMart.CarSystem
 
             _currentPowerup.OnEffectEnd -= OnEffectEnd;
             _currentPowerup = null;
+            _powerupRoutine = null;
             OnRemovedPowerup?.Invoke();
         }
     }

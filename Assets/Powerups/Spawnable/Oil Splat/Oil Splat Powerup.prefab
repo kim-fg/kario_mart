@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1288262172434591052
+--- !u!1001 &5209684404717664163
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,34 +48,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 225506641991875963, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
-      propertyPath: m_Animation
-      value: 
-      objectReference: {fileID: 7400000, guid: 376b1ce4ef1d4e043bd48b7c40df1acc, type: 2}
-    - target: {fileID: 225506641991875963, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
-      propertyPath: m_Animations.Array.size
+    - target: {fileID: 3388554163255459695, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 225506641991875963, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
-      propertyPath: m_Animations.Array.data[0]
-      value: 
-      objectReference: {fileID: 7400000, guid: 376b1ce4ef1d4e043bd48b7c40df1acc, type: 2}
-    - target: {fileID: 1637968853632148615, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4107512662fc2954b8b5213badd3466a, type: 2}
     - target: {fileID: 7351588161402074082, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: a7280a9fa83b1824c803adcf08a87cb7, type: 2}
+      objectReference: {fileID: 11400000, guid: ba01c52d5ee2f35498a6cad17ffd8dc6, type: 2}
     - target: {fileID: 7998137388965226617, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
       propertyPath: m_Name
-      value: Sawblade Powerup
+      value: Oil Splat Powerup
       objectReference: {fileID: 0}
     - target: {fileID: 8287125050111261427, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 07e618abab58e4b43b9075e0f7e66429, type: 3}
+      objectReference: {fileID: 21300000, guid: 40937a600aad65b42b0149fb163aaf88, type: 3}
+    - target: {fileID: 8287125050111261427, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287125050111261427, guid: abcfe3115bb51a24db0a9fe2521e18d4, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1342483051
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

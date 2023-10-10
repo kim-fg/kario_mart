@@ -22,7 +22,7 @@ namespace KarioMart.Powerups.Spawnable
         public override IEnumerator Activate(Car target)
         {
             var spawnDirection = spawnBehind ? -1 : 1;
-            var spawnPos = target.transform.position + target.transform.up * 2 * spawnDirection;
+            var spawnPos = target.transform.position + target.transform.up * (2 * spawnDirection);
             var spawnable = SpawnedPowerup.Instantiate(spawnedPowerupPrefab, target, spawnPos);
             spawnable.transform.position = spawnPos;
             

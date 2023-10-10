@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d38d9f0229a4c43b1e544d18eb207df, type: 3}
   m_Name: Turbo Powerup
   m_EditorClassIdentifier: 
+  displaySprite: {fileID: 21300000, guid: 5a73598c47aedee4696b3b1de7373a8f, type: 3}
   effectTime: 3
   addedMaxSpeed: 10
   addedAcceleration: 10
