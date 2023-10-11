@@ -76,5 +76,10 @@ namespace KarioMart.Gamemodes.PVP
             var firstPair = sortedRacePositionArray.First();
             return firstPair.Key;
         }
+
+        private void OnDestroy()
+        {
+            OnPlayerProgress = null;
+        }
     }
 }

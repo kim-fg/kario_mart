@@ -64,5 +64,11 @@ namespace KarioMart.CarSystem
         {
             spriteRenderer.color = color;
         }
+
+        private void OnDestroy()
+        {
+            OnEnterCheckpoint = null;
+            _maxID--;
+        }
     }
 }
