@@ -7,7 +7,7 @@ namespace KarioMart.Gamemodes.Data
     public class GamemodeData : ScriptableObject
     {
         [SerializeField] private string displayName = "Gamemode";
-        [SerializeField] private string description = "Gamemode description ....";
+        [SerializeField] private string description = "Gamemode description ...";
         [FormerlySerializedAs("gamemodePrefab")] [SerializeField] private Gamemode prefab;
         [SerializeField] private Sprite displayImage;
         

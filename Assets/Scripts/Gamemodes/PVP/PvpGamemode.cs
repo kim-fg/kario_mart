@@ -21,10 +21,7 @@ namespace KarioMart.Gamemodes.PVP
         
         public int LapCount => lapCount;
 
-        public RacePosition GetRacePosition(Car car)
-        {
-            return _carRacePositions[car];
-        }
+        public RacePosition GetRacePosition(Car car) => _carRacePositions[car];
 
         protected override void Init()
         {
@@ -42,7 +39,10 @@ namespace KarioMart.Gamemodes.PVP
             _carRacePositions.Add(p2Car, new RacePosition());
         }
 
-        protected override void StartLap() { }
+        protected override void StartLap()
+        {
+            // do nothing
+        }
 
         protected override void OnCarEnteredCheckpoint(Car car, Collider2D checkpoint)
         {
@@ -60,19 +60,12 @@ namespace KarioMart.Gamemodes.PVP
                 
                 if (racePosition.LapCounter == LapCount)
                 {
-                    print($"Game over! Player {car.RaceID + 1} wins :D");
                     GameOver();
                     return;
                 }
             }
-                
-            
-            //print($"{car} - {racePosition.PositionScore(CheckpointCount)}");
             
             _carRacePositions[car] = racePosition;
-            
-            
-            
             OnPlayerProgress?.Invoke(car);
         }
 

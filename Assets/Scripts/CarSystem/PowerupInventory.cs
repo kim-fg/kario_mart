@@ -13,10 +13,7 @@ namespace KarioMart.CarSystem
         private Car _car;
         private Powerup _currentPowerup;
 
-        private void Awake()
-        {
-            _car = GetComponent<Car>();
-        }
+        private void Awake() => _car = GetComponent<Car>();
 
         public bool HasPowerup => _currentPowerup;
         
@@ -48,11 +45,8 @@ namespace KarioMart.CarSystem
         private void OnEffectEnd(Car target)
         {
             if (!target.Equals(_car))
-            {
-                Debug.LogWarning("This is what you were protecting against!");
                 return;
-            }
-
+            
             _currentPowerup.OnEffectEnd -= OnEffectEnd;
             _currentPowerup = null;
             _powerupRoutine = null;

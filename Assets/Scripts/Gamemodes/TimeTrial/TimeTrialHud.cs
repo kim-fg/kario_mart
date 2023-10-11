@@ -28,10 +28,7 @@ namespace KarioMart.Gamemodes.TimeTrial
         {
             _timeTrial = transform.root.GetComponent<TimeTrial>();
             _timeTrial.OnLapEnded += LapEnded;
-            _timeTrial.OnSplit += delegate(Lap currentLap)
-            {
-                StartCoroutine(ShowSplitTime(currentLap));
-            };
+            _timeTrial.OnSplit += delegate(Lap currentLap) { StartCoroutine(ShowSplitTime(currentLap)); };
             _timeTrial.OnNewBestLap += UpdateBestLapLabel;
         }
         

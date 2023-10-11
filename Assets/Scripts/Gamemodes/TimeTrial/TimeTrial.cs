@@ -67,9 +67,6 @@ namespace KarioMart.Gamemodes.TimeTrial
                 OnNewBestLap?.Invoke(BestLap);
             }
             
-            // save in highscore list
-                // <--
-            
             LapCount++;
             
             OnLapEnded?.Invoke(CurrentLap);

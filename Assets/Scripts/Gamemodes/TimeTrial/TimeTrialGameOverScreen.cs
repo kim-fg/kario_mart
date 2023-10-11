@@ -65,7 +65,7 @@ namespace KarioMart.Gamemodes.TimeTrial
         {
             nicknameInputField.interactable = false;
             saveLapRecordButton.interactable = false;
-            // save _bestlap as json
+            
             var lapRecord = new LapRecord(_timeTrial.BestLap.GetLapTime(), nicknameInputField.text);
             _timeTrial.SaveRecord(lapRecord);
         }

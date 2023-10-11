@@ -16,6 +16,7 @@ namespace KarioMart.CarSystem
             _powerupInventory = GetComponent<PowerupInventory>();
         }
 
+        // input method
         private void OnMove(InputValue inputValue)
         {
             var input = inputValue.Get<Vector2>();

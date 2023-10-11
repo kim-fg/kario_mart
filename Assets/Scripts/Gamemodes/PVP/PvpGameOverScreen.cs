@@ -9,9 +9,6 @@ namespace KarioMart.Gamemodes.PVP
     {
         [SerializeField] private TextMeshProUGUI winnerLabel;
         
-        public void SetWinner(Car winner)
-        {
-            winnerLabel.text = $"Player {winner.RaceID + 1} wins!";
-        }
+        public void SetWinner(Car winner) => winnerLabel.text = $"Player {winner.RaceID + 1} wins!";
     }
 }

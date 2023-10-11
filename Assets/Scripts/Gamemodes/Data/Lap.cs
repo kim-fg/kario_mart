@@ -30,10 +30,8 @@ namespace KarioMart.Gamemodes.Data
             
         public bool IsRecord(Lap oldRecord) => oldRecord.GetLapTime() >= GetLapTime();
         
-        public string LapTimeDisplayString()
-        {
-            return LapTimeDisplayString(GetLapTime());
-        }
+        public static string EmptyLapTimeDisplayString() => "-:--:-";
+        public string LapTimeDisplayString() => LapTimeDisplayString(GetLapTime());
 
         public static string LapTimeDisplayString(float lapTime)
         {
@@ -43,6 +41,5 @@ namespace KarioMart.Gamemodes.Data
             
             return $"{minutes}:{seconds:00}:{tenths}";
         }
-        public static string EmptyLapTimeDisplayString() => "-:--:-";
     }
 }

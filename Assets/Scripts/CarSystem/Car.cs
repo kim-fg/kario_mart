@@ -28,6 +28,7 @@ namespace KarioMart.CarSystem
         public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
 
         public float AccelerationScale { get => accelerationScale; set => accelerationScale = value; }
+        public Rigidbody2D Body => _rb2d;
 
         private void Awake()
         {
@@ -43,8 +44,7 @@ namespace KarioMart.CarSystem
             var deltaGas =  _gas * gasScale * Time.deltaTime;
             var acceleration = (Vector2)transform.up * deltaGas;
             var newVelocity = _rb2d.velocity + acceleration;
-            // replace with moveTowards
-            // only if speed > maxSpeed
+            
             var clampedSpeed = Mathf.Clamp(newVelocity.magnitude, float.Epsilon, maxSpeed);
             _rb2d.velocity = newVelocity.normalized * clampedSpeed;
 

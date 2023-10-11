@@ -1,3 +1,5 @@
+using KarioMart.Util;
+
 namespace KarioMart.Gamemodes.TimeTrial.Records
 {
     [System.Serializable]
@@ -8,14 +10,6 @@ namespace KarioMart.Gamemodes.TimeTrial.Records
 
         public LapRecord(float lapTime, string playerName) => (LapTime, PlayerName) = (lapTime, playerName);
 
-        public bool IsDefault()
-        {
-            return Equals(default(LapRecord));
-        }
-    }
-
-    public interface IDefaultComparable
-    {
-        public bool IsDefault();
+        public bool IsDefault() => Equals(default(LapRecord));
     }
 }

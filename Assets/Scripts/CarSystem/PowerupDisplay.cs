@@ -8,7 +8,6 @@ namespace KarioMart.CarSystem
         private SpriteRenderer _spriteRenderer;
         private PowerupInventory _powerupInventory;
         
-        
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

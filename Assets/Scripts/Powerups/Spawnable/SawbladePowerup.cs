@@ -10,7 +10,7 @@ namespace KarioMart.Powerups.Spawnable
     {
         public override IEnumerator OnHit(Car target, SpawnedPowerup instance)
         {
-            var rb = target.GetComponent<Rigidbody2D>();
+            var rb = target.Body;
             var prevDrag = (rb.drag, rb.angularDrag);
             rb.drag = 0;
             rb.angularDrag = 0;

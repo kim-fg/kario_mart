@@ -15,10 +15,7 @@ namespace KarioMart.CarSystem
             _car = transform.root.GetComponent<Car>();
         }
 
-        void FixedUpdate()
-        {
-            UpdateSpeedLabel();
-        }
+        void FixedUpdate() => UpdateSpeedLabel();
 
         private void UpdateSpeedLabel()
         {
