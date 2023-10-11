@@ -21,10 +21,12 @@ namespace KarioMart.Gamemodes
 
         private void OnStartRace()
         {
-            if (!_raceStarted)
-                StartCoroutine(StartCountdown());
+            if (!_raceStarted && _startCountdownRoutine == null)
+                _startCountdownRoutine = StartCoroutine(StartCountdown());
         }
 
+        private Coroutine _startCountdownRoutine;
+        
         private IEnumerator StartCountdown()
         {
             _canvas.enabled = true;
@@ -40,6 +42,9 @@ namespace KarioMart.Gamemodes
             yield return new WaitForSeconds(1);
 
             _canvas.enabled = false;
+            
+            _startCountdownRoutine = null;
+            _raceStarted = true;
         }
     }
 }
